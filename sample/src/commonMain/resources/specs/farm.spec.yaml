@@ -1,0 +1,36 @@
+properties:
+  ePower:
+    quantity: EPowerQuantity
+  liquid:
+    quantity: LiquidQuantity
+
+quantities:
+  EPowerQuantity:
+    unit:
+      - kWh
+      - Wh
+  LiquidQuantity:
+    unit:
+      - l
+      - m3
+      - kg
+
+resources:
+  Battery1:
+    properties:
+      - ePower
+  Battery2:
+    properties:
+      - ePower
+  Pump1:
+    properties:
+      - ePower
+      - liquid
+  Pump2:
+    properties:
+      - ePower
+      - liquid
+  Pump3:
+    properties:
+      - ePower
+      - liquid

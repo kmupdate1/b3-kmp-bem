@@ -4,4 +4,5 @@ include(
     ":core",
     ":server",
     ":sdk",
+    ":sample",
 )

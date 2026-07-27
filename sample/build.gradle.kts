@@ -1,5 +1,4 @@
 plugins {
-    `maven-publish`
     alias(libs.plugins.kotlin.multiplatform)
 }
 
@@ -8,8 +7,6 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {  }
-        commonTest.dependencies {
-            implementation(kotlin("test"))
-        }
+        commonTest.dependencies {  }
     }
 }

@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/b3-bem.core.commonMain.iml" filepath="$PROJECT_DIR$/.idea/modules/core/b3-bem.core.commonMain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/b3-bem.core.commonTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/b3-bem.core.commonTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/b3-bem.sdk.commonMain.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/b3-bem.sdk.commonMain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk/b3-bem.sdk.commonTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk/b3-bem.sdk.commonTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/server/b3-bem.server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/server/b3-bem.server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/server/b3-bem.server.test.iml" filepath="$PROJECT_DIR$/.idea/modules/server/b3-bem.server.test.iml" />
     </modules>
