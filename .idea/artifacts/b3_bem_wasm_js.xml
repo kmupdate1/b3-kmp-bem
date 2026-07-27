@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="b3-bem-wasm-js">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="b3-bem-wasm-js.jar" />
+  </artifact>
+</component>

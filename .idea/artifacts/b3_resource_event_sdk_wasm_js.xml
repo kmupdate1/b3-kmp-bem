@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="b3-resource-event-sdk-wasm-js">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="b3-resource-event-sdk-wasm-js.jar">
+      <element id="module-output" name="b3-resource-event-sdk.wasmJsMain" />
+    </root>
+  </artifact>
+</component>
