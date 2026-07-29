@@ -8,7 +8,22 @@ group = "org.bluebikebase.bem"
 version = "0.1.0-SNAPSHOT"
 
 allprojects {
+    group = rootProject.group
+    version = rootProject.version
+
     repositories {
         mavenCentral()
+    }
+
+    plugins.withId("org.jetbrains.kotlin.jvm") {
+        extensions.configure<org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension> {
+            jvmToolchain(21)
+        }
+    }
+
+    plugins.withId("org.jetbrains.kotlin.multiplatform") {
+        extensions.configure<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension> {
+            jvmToolchain(21)
+        }
     }
 }

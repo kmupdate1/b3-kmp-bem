@@ -1,4 +1,4 @@
-resources:
+properties:
   electric:
     quantity: ElectricQuantity
     unit:
@@ -15,27 +15,28 @@ resources:
     unit:
       - month
 
-equipments:
+resources:
   Battery1:
-    resources:
+    properties:
       - electric
   Battery2:
-    resources:
+    properties:
       - electric
-
   Pump1:
-    resources:
+    properties:
       - electric
       - water
+
   Pump2:
-    resources:
+    properties:
       - electric
       - water
+
   Pump3:
-    resources:
+    properties:
       - electric
       - water
 
   EmployeeA:
-    resources:
+    properties:
       - human
