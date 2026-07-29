@@ -14,7 +14,7 @@ allprojects {
 
     repositories {
         maven {
-            url = uri("http://b3c-alpha-2:8081/repository/maven-public/")
+            url = uri("${providers.gradleProperty("repo.url.vpn").orNull}/maven-public/")
             isAllowInsecureProtocol = true
         }
         mavenCentral()
@@ -36,7 +36,7 @@ allprojects {
         publishing {
             repositories {
                 maven {
-                    val destination = "http://b3c-alpha-2:8081/repository"
+                    val destination = providers.gradleProperty("repo.url.vpn").orNull
                     val releases = "$destination/maven-releases/"
                     val snapshots = "$destination/maven-snapshots/"
 
