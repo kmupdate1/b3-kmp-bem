@@ -1,4 +1,5 @@
 plugins {
+    `maven-publish`
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.plugin.serialization) apply false
@@ -24,6 +25,14 @@ allprojects {
     plugins.withId("org.jetbrains.kotlin.multiplatform") {
         extensions.configure<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension> {
             jvmToolchain(21)
+        }
+    }
+
+    plugins.withId("maven-publish") {
+        publishing {
+            repositories {
+                mavenLocal()
+            }
         }
     }
 }
