@@ -1,17 +1,14 @@
 resources:
   electric:
-    quantity: ElectricQuantity
     unit:
       - kwh
       - wh
   water:
-    quantity: WaterQuantity
     unit:
       - l
       - m3
       - kg
   human:
-    quantity: HumanQuantity
     unit:
       - month
 
