@@ -11,7 +11,7 @@ resources:
       - m3
       - kg
   human:
-    quantity: HumanityQuantity
+    quantity: HumanQuantity
     unit:
       - month
 

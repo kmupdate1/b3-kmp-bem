@@ -1,8 +1,8 @@
 package org.b3.bem.core.event
 
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.core.resource.Resource
 import org.b3.bem.core.quantity.Quantity
+import org.b3.bem.core.resource.Resource
 import kotlin.time.Instant
 
 data class BusinessEvent<Q : Quantity>(
