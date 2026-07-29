@@ -13,6 +13,10 @@ allprojects {
     version = rootProject.version
 
     repositories {
+        maven {
+            url = uri("http://b3c-alpha-2:8081/repository/maven-public/")
+            isAllowInsecureProtocol = true
+        }
         mavenCentral()
     }
 
@@ -31,7 +35,22 @@ allprojects {
     plugins.withId("maven-publish") {
         publishing {
             repositories {
-                mavenLocal()
+                maven {
+                    val destination = "http://b3c-alpha-2:8081/repository"
+                    val releases = "$destination/maven-releases/"
+                    val snapshots = "$destination/maven-snapshots/"
+
+                    url = uri(
+                        if (version.toString().endsWith("SNAPSHOT")) snapshots
+                        else releases
+                    )
+                    isAllowInsecureProtocol = true
+
+                    credentials {
+                        username = providers.gradleProperty("repo.username").orNull
+                        password = providers.gradleProperty("repo.password").orNull
+                    }
+                }
             }
         }
     }
