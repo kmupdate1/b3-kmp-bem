@@ -47,8 +47,8 @@ allprojects {
                     isAllowInsecureProtocol = true
 
                     credentials {
-                        username = providers.gradleProperty("repo.username").orNull
-                        password = providers.gradleProperty("repo.password").orNull
+                        username = providers.environmentVariable("B3_REPO_USER").orNull
+                        password = providers.environmentVariable("B3_REPO_PASS").orNull
                     }
                 }
             }
