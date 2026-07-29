@@ -8,14 +8,24 @@ plugins {
 group = "org.bluebikebase.bem"
 version = "0.1.0-SNAPSHOT"
 
+val profile = providers.gradleProperty("repo.profile").orElse("public")
+
+val isPublic = profile.map { it == "public" }
+
+val repoUrl = when (profile.get()) {
+    "local" -> providers.gradleProperty("repo.url.local")
+    "vpn" -> providers.gradleProperty("repo.url.vpn")
+    else -> providers.gradleProperty("repo.url.public")
+}
+
 allprojects {
     group = rootProject.group
     version = rootProject.version
 
     repositories {
         maven {
-            url = uri("${providers.gradleProperty("repo.url.vpn").orNull}/maven-public/")
-            isAllowInsecureProtocol = true
+            url = uri("${repoUrl.orNull}/maven-public/")
+            isAllowInsecureProtocol = !isPublic.get()
         }
         mavenCentral()
     }
@@ -36,15 +46,14 @@ allprojects {
         publishing {
             repositories {
                 maven {
-                    val destination = providers.gradleProperty("repo.url.vpn").orNull
-                    val releases = "$destination/maven-releases/"
-                    val snapshots = "$destination/maven-snapshots/"
+                    val releases = "${repoUrl.orNull}/maven-releases/"
+                    val snapshots = "${repoUrl.orNull}/maven-snapshots/"
 
                     url = uri(
                         if (version.toString().endsWith("SNAPSHOT")) snapshots
                         else releases
                     )
-                    isAllowInsecureProtocol = true
+                    isAllowInsecureProtocol = !isPublic.get()
 
                     credentials {
                         username = providers.environmentVariable("B3_REPO_USER").orNull
