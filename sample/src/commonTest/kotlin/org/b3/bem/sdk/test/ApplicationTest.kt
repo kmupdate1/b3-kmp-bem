@@ -36,6 +36,6 @@ class ApplicationTest {
             }
         }
 
-        println(Json.encodeToString(pump1Measured))
+        // println(Json.encodeToString(pump1Measured))
     }
 }

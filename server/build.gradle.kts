@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":codec"))
 
     testImplementation(kotlin("test"))
 }

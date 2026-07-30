@@ -10,7 +10,8 @@ rootProject.name = "b3-bem"
 
 include(
     ":core",
-    ":server",
+    ":codec",
     ":sdk",
+    ":server",
     ":sample",
 )

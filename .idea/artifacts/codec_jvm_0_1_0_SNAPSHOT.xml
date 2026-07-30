@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="codec-jvm-0.1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/codec/build/libs</output-path>
+    <root id="archive" name="codec-jvm-0.1.0-SNAPSHOT.jar">
+      <element id="module-output" name="b3-bem.codec.jvmMain" />
+    </root>
+  </artifact>
+</component>
