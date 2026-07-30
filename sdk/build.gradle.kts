@@ -11,7 +11,6 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
 
-            api(project(":core"))
             api(project(":codec"))
         }
         commonTest.dependencies {
