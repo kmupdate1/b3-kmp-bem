@@ -1,7 +1,7 @@
 package org.b3.bem.sdk.dsl
 
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.sdk.model.Fact
+import org.b3.bem.core.model.Fact
 
 fun boundary(scope: String, block: BoundaryBuilder.() -> Unit): Fact =
     BoundaryBuilder(scope = scope).apply(block).build()

@@ -2,8 +2,8 @@ package org.b3.bem.sdk.dsl
 
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
-import org.b3.bem.sdk.model.Direction
-import org.b3.bem.sdk.model.Flow
+import org.b3.bem.core.model.Direction
+import org.b3.bem.core.model.Flow
 
 interface FlowScope {
     val flows: MutableList<Flow<*>>

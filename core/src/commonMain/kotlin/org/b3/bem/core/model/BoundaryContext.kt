@@ -1,4 +1,4 @@
-package org.b3.bem.sdk.model
+package org.b3.bem.core.model
 
 data class BoundaryContext(
     val scope: String,

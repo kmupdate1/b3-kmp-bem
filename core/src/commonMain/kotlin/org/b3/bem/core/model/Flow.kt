@@ -1,4 +1,4 @@
-package org.b3.bem.sdk.model
+package org.b3.bem.core.model
 
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource

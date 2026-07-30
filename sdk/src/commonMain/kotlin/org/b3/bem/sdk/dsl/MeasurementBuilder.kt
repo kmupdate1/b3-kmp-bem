@@ -1,9 +1,9 @@
 package org.b3.bem.sdk.dsl
 
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.sdk.model.Fact
-import org.b3.bem.sdk.model.Flow
-import org.b3.bem.sdk.model.MeasurementContext
+import org.b3.bem.core.model.Fact
+import org.b3.bem.core.model.Flow
+import org.b3.bem.core.model.MeasurementContext
 
 class MeasurementBuilder<E : Equipment>(
     internal val equipment: E,
