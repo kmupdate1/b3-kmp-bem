@@ -1,8 +1,8 @@
 package org.b3.bem.sdk.dsl
 
-import org.b3.bem.core.model.BoundaryContext
-import org.b3.bem.core.model.Fact
-import org.b3.bem.core.model.Flow
+import org.b3.bem.core.fact.BoundaryContext
+import org.b3.bem.core.fact.Fact
+import org.b3.bem.core.fact.Flow
 
 class BoundaryBuilder(scope: String) : FlowScope {
     val context = BoundaryContext(scope)

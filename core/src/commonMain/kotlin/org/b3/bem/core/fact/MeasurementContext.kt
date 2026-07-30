@@ -1,4 +1,4 @@
-package org.b3.bem.core.model
+package org.b3.bem.core.fact
 
 import org.b3.bem.core.equipment.Equipment
 
