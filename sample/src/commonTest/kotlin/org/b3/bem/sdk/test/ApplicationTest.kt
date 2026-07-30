@@ -1,5 +1,6 @@
 package org.b3.bem.sdk.test
 
+import kotlinx.serialization.json.Json
 import org.b3.bem.generated.equipment.Battery1
 import org.b3.bem.generated.equipment.Pump1
 import org.b3.bem.generated.equipment.Pump2
@@ -14,7 +15,7 @@ class ApplicationTest {
 
     @Test
     fun generateBem() {
-        val measured = Pump1.measure {
+        val pump1Measured = Pump1.measure {
             it.electric outflow 120.wh
             it.water outflow 500.m3
         }
@@ -34,5 +35,7 @@ class ApplicationTest {
                 water outflow 730.m3
             }
         }
+
+        println(Json.encodeToString(pump1Measured))
     }
 }

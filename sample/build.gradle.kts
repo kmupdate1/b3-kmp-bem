@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.plugin.serialization)
     id("org.bluebikebase.plugin.bem") version "0.1.0-SNAPSHOT"
 }
 
@@ -8,6 +9,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.kotlinx.serialization.json)
+
             api(project(":core"))
             api(project(":sdk"))
         }
