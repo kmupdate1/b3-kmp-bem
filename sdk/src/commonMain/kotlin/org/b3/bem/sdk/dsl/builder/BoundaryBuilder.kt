@@ -1,16 +1,23 @@
 package org.b3.bem.sdk.dsl.builder
 
+import org.b3.bem.core.equipment.Equipment
 import org.b3.bem.core.fact.BoundaryContext
-import org.b3.bem.core.fact.Fact
-import org.b3.bem.core.fact.Flow
+import org.b3.bem.core.fact.CompositeFact
 
-class BoundaryBuilder(scope: String) : FlowBuilder {
-    val context = BoundaryContext(scope)
+class BoundaryBuilder(private val scope: String) {
+    fun <E : Equipment> E.measure(
+        block: MeasurementBuilder<E>.(E) -> Unit,
+    ) {
+        measurements +=
+            MeasurementBuilder(this)
+                .apply { block(equipment) }
+                .build()
+    }
 
-    override val flows: MutableList<Flow<*>> = mutableListOf()
-
-    fun build(): Fact = Fact(
-        context = context,
-        flows = flows.toList(),
+    internal fun build(): CompositeFact = CompositeFact(
+        context = BoundaryContext(scope),
+        facts = measurements,
     )
+
+    private val measurements = mutableListOf<CompositeFact>()
 }

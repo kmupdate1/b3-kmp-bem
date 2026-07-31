@@ -7,4 +7,4 @@ data class Flow<Q : Quantity>(
     val resource: Resource<Q>,
     val direction: Direction,
     val quantity: Q,
-)
+) : Fact

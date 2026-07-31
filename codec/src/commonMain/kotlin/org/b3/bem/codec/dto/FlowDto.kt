@@ -7,4 +7,4 @@ data class FlowDto(
     val resource: ResourceDto,
     val quantity: QuantityDto,
     val direction: String,
-)
+) : FactDto

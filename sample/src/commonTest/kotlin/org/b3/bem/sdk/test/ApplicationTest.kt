@@ -29,19 +29,23 @@ class ApplicationTest {
             it.water outflow 500.m3
         }
 
-        val grid = boundary("Grid") {
-            Battery1.electric inflow 800.wh
-            Battery1.electric outflow 200.wh
-            Pump3.electric inflow 50.wh
-            Pump3.electric outflow 50.wh
+        val takeWater = boundary("Take Water from river") {
+            Pump2.measure {
+                it.electric inflow 600.wh
+                it.electric outflow 500.wh
+                it.water inflow 750.m3
+                it.water outflow 730.m3
+            }
         }
 
-        val takeWater = boundary("Take Water from river") {
-            Pump2.run {
-                electric inflow 600.wh
-                electric outflow 500.wh
-                water inflow 750.m3
-                water outflow 730.m3
+        val grid = boundary("Electric Power Grid") {
+            Battery1.measure {
+                it.electric inflow 800.wh
+                it.electric outflow 200.wh
+            }
+            Pump3.measure {
+                it.electric inflow 50.wh
+                it.electric outflow 50.wh
             }
         }
 

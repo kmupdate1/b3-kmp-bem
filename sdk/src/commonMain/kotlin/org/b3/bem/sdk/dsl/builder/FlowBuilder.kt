@@ -5,9 +5,7 @@ import org.b3.bem.core.resource.Resource
 import org.b3.bem.core.fact.Direction
 import org.b3.bem.core.fact.Flow
 
-interface FlowBuilder {
-    val flows: MutableList<Flow<*>>
-
+abstract class FlowBuilder {
     infix fun <Q : Quantity> Resource<Q>.inflow(quantity: Q) {
         flows += Flow(
             resource = this,
@@ -23,4 +21,6 @@ interface FlowBuilder {
             quantity = quantity,
         )
     }
+
+    internal val flows: MutableList<Flow<*>> = mutableListOf()
 }

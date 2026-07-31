@@ -4,10 +4,11 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.ClassDiscriminatorMode
 import kotlinx.serialization.json.Json
 import org.b3.bem.codec.codec.Codec
+import org.b3.bem.codec.dto.CompositeFactDto
 import org.b3.bem.codec.dto.FactDto
 
 object JsonCodec : Codec<String> {
-    override fun encode(dto: FactDto): String = json.encodeToString(dto)
+    override fun encode(dto: CompositeFactDto): String = json.encodeToString(dto)
     override fun decode(data: String): FactDto = json.decodeFromString(data)
 
     @OptIn(ExperimentalSerializationApi::class)

@@ -1,19 +1,17 @@
 package org.b3.bem.sdk.dsl.builder
 
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.core.fact.Fact
+import org.b3.bem.core.fact.CompositeFact
 import org.b3.bem.core.fact.Flow
 import org.b3.bem.core.fact.MeasurementContext
 
 class MeasurementBuilder<E : Equipment>(
     internal val equipment: E,
-) : FlowBuilder {
+) : FlowBuilder() {
     val context = MeasurementContext(equipment)
 
-    override val flows: MutableList<Flow<*>> = mutableListOf()
-
-    fun build(): Fact = Fact(
+    fun build(): CompositeFact = CompositeFact(
         context = context,
-        flows = flows.toList(),
+        facts = flows.toList(),
     )
 }

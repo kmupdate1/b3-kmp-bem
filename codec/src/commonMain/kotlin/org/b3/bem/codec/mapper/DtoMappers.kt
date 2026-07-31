@@ -3,6 +3,7 @@ package org.b3.bem.codec.mapper
 import org.b3.bem.codec.dto.BoundaryContextDto
 import org.b3.bem.codec.dto.ContextDto
 import org.b3.bem.codec.dto.EquipmentDto
+import org.b3.bem.codec.dto.CompositeFactDto
 import org.b3.bem.codec.dto.FactDto
 import org.b3.bem.codec.dto.FlowDto
 import org.b3.bem.codec.dto.MeasurementContextDto
@@ -11,6 +12,7 @@ import org.b3.bem.codec.dto.ResourceDto
 import org.b3.bem.core.equipment.Equipment
 import org.b3.bem.core.fact.BoundaryContext
 import org.b3.bem.core.fact.Context
+import org.b3.bem.core.fact.CompositeFact
 import org.b3.bem.core.fact.Fact
 import org.b3.bem.core.fact.Flow
 import org.b3.bem.core.fact.MeasurementContext
@@ -34,8 +36,14 @@ fun <Q : Quantity> Flow<Q>.toDto(): FlowDto =
         direction = direction.name,
     )
 
-fun Fact.toDto(): FactDto =
-    FactDto(
+fun CompositeFact.toDto(): CompositeFactDto =
+    CompositeFactDto(
         context = context.toDto(),
-        flows = flows.map { it.toDto() },
+        facts = facts.map { it.toDto() },
     )
+
+fun Fact.toDto(): FactDto =
+    when (this) {
+        is CompositeFact -> this.toDto()
+        is Flow<*> -> this.toDto()
+    }
