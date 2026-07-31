@@ -3,6 +3,9 @@ package org.b3.bem.sdk.test
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import kotlinx.coroutines.runBlocking
+import kotlinx.io.buffered
+import kotlinx.io.files.Path
+import kotlinx.io.files.SystemFileSystem
 import org.b3.bem.generated.equipment.Battery1
 import org.b3.bem.generated.equipment.Pump1
 import org.b3.bem.generated.equipment.Pump2
@@ -13,10 +16,13 @@ import org.b3.bem.sdk.dsl.function.boundary
 import org.b3.bem.sdk.dsl.function.file
 import org.b3.bem.sdk.dsl.function.http
 import org.b3.bem.sdk.dsl.function.measure
+import org.b3.bem.sdk.format.Json
 import org.b3.bem.sdk.format.Xml
+import org.junit.Test
 
 class ApplicationTest {
 
+    @Test
     fun `user application sample execute test`() {
         val pump1Measured = Pump1.measure {
             it.electric outflow 120.wh
@@ -47,8 +53,18 @@ class ApplicationTest {
                 add(grid)
             }
 
+            file(format = Json) {
+                output = SystemFileSystem.sink(Path("facts.json"))
+                    .buffered()
+
+                add(pump1Measured)
+                add(grid)
+                add(takeWater)
+            }
+
             file(format = Xml) {
-                output =
+                output = SystemFileSystem.sink(Path("facts.xml"))
+                    .buffered()
 
                 add(pump1Measured)
                 add(takeWater)

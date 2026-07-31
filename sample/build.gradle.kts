@@ -12,12 +12,17 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.core)
 
-            implementation(libs.ktor.client.cio)
-            implementation(libs.ktor.client.darwin)
-
             api(project(":sdk"))
         }
         commonTest.dependencies {  }
+
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.cio)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
     }
     sourceSets.commonTest.dependencies {
         implementation(kotlin("test"))
