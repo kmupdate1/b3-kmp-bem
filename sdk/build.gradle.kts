@@ -11,6 +11,7 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.client.core)
+            implementation(libs.pdvrieze.xmlutil)
 
             api(project(":codec"))
             api(project(":protocol"))

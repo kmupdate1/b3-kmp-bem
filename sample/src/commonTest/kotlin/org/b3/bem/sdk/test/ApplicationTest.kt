@@ -48,6 +48,8 @@ class ApplicationTest {
             }
 
             file(format = Xml) {
+                output =
+
                 add(pump1Measured)
                 add(takeWater)
             }

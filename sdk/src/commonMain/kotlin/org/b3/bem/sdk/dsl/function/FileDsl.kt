@@ -7,7 +7,9 @@ import org.b3.bem.sdk.transport.file.ByteFileTransport
 import org.b3.bem.sdk.transport.file.FileTransport
 
 suspend fun file(format: Format<String>, block: FilePublishScope.() -> Unit) {
-    val scope = FilePublishScope().apply(block)
+    val scope = FilePublishScope()
+        .apply(block)
+        .also { it.validate() }
 
     val transport = FileTransport(output = scope.output)
 
@@ -18,7 +20,9 @@ suspend fun file(format: Format<String>, block: FilePublishScope.() -> Unit) {
 }
 
 suspend fun binaryFile(format: Format<ByteArray>, block: FilePublishScope.() -> Unit) {
-    val scope = FilePublishScope().apply(block)
+    val scope = FilePublishScope()
+        .apply(block)
+        .also { it.validate() }
 
     val transport = ByteFileTransport(output = scope.output)
 
