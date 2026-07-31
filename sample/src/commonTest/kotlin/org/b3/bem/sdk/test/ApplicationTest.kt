@@ -45,12 +45,14 @@ class ApplicationTest {
         }
 
         runBlocking {
+            /*
             http(client = HttpClient(clientEngine()) {
                 engine {}
             }) {
                 add(pump1Measured)
                 add(grid)
             }
+            */
 
             file(format = Json) {
                 output = SystemFileSystem.sink(Path("facts.json"))

@@ -1,5 +1,6 @@
 package org.b3.bem.core.event
 
+import kotlin.jvm.JvmInline
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
