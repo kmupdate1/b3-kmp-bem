@@ -1,6 +1,7 @@
 package org.b3.bem.sdk.test
 
 import io.ktor.client.*
+import io.ktor.http.Url
 import kotlinx.coroutines.runBlocking
 import kotlinx.io.buffered
 import kotlinx.io.files.Path
@@ -45,14 +46,14 @@ class ApplicationTest {
         }
 
         runBlocking {
-            /*
             http(client = HttpClient(clientEngine()) {
                 engine {}
             }) {
+                url = Url("http://localhost:8080/facts")
+
                 add(pump1Measured)
                 add(grid)
             }
-            */
 
             file(format = Json) {
                 output = SystemFileSystem.sink(Path("facts.json"))
