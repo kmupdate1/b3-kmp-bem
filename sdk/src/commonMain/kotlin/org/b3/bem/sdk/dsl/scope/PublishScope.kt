@@ -1,8 +1,8 @@
-package org.b3.bem.sdk.publish
+package org.b3.bem.sdk.dsl.scope
 
 import org.b3.bem.core.fact.Fact
 
-class PublishScope {
+abstract class PublishScope {
     fun add(fact: Fact) { facts += fact }
 
     private val facts = mutableListOf<Fact>()

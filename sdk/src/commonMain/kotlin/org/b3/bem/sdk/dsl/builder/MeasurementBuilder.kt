@@ -1,4 +1,4 @@
-package org.b3.bem.sdk.dsl
+package org.b3.bem.sdk.dsl.builder
 
 import org.b3.bem.core.equipment.Equipment
 import org.b3.bem.core.fact.Fact
@@ -7,7 +7,7 @@ import org.b3.bem.core.fact.MeasurementContext
 
 class MeasurementBuilder<E : Equipment>(
     internal val equipment: E,
-) : FlowScope {
+) : FlowBuilder {
     val context = MeasurementContext(equipment)
 
     override val flows: MutableList<Flow<*>> = mutableListOf()

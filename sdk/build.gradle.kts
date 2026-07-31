@@ -10,8 +10,10 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.client.core)
 
             api(project(":codec"))
+            api(project(":protocol"))
         }
         commonTest.dependencies {
             implementation(kotlin("test"))

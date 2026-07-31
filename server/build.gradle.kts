@@ -3,7 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":codec"))
+    api(project(":codec"))
+    api(project(":protocol"))
 
     testImplementation(kotlin("test"))
 }

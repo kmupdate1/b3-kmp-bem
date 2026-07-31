@@ -1,5 +1,7 @@
 package org.b3.bem.sdk.test
 
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
 import kotlinx.coroutines.runBlocking
 import org.b3.bem.generated.equipment.Battery1
 import org.b3.bem.generated.equipment.Pump1
@@ -7,10 +9,11 @@ import org.b3.bem.generated.equipment.Pump2
 import org.b3.bem.generated.equipment.Pump3
 import org.b3.bem.generated.extension.m3
 import org.b3.bem.generated.extension.wh
-import org.b3.bem.sdk.dsl.boundary
-import org.b3.bem.sdk.dsl.measure
-import org.b3.bem.sdk.dsl.publish
-import org.b3.bem.sdk.publish.json.Json
+import org.b3.bem.sdk.dsl.function.boundary
+import org.b3.bem.sdk.dsl.function.file
+import org.b3.bem.sdk.dsl.function.http
+import org.b3.bem.sdk.dsl.function.measure
+import org.b3.bem.sdk.format.Xml
 
 class ApplicationTest {
 
@@ -37,11 +40,28 @@ class ApplicationTest {
         }
 
         runBlocking {
-            publish(Json) {
+            http(client = HttpClient(CIO) {
+                engine {}
+            }) {
                 add(pump1Measured)
                 add(grid)
+            }
+
+            file(format = Xml) {
+                add(pump1Measured)
                 add(takeWater)
             }
+
+            /*
+            binaryFile(format = Proto) {
+
+            }
+
+            mqtt(Proto) {
+                add(grid)
+                add(pump1Measured)
+            }
+            */
         }
     }
 }
