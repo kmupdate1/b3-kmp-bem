@@ -18,7 +18,7 @@ import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 
 fun Quantity.toDto(): QuantityDto = QuantityDto(value = value)
-fun Equipment.toDto(): EquipmentDto = EquipmentDto(businessKey = id.value, name = name)
+fun Equipment.toDto(): EquipmentDto = EquipmentDto(key = id.value, name = name)
 fun <Q : Quantity> Resource<Q>.toDto(): ResourceDto = ResourceDto(name = name)
 
 fun Context.toDto(): ContextDto =
