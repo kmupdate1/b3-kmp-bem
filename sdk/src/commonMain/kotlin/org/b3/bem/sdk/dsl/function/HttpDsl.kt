@@ -7,7 +7,9 @@ import org.b3.bem.sdk.format.Json
 import org.b3.bem.sdk.publish.DefaultPublisher
 
 suspend fun http(client: HttpClient, block: HttpPublishScope.() -> Unit) {
-    val scope = HttpPublishScope().apply(block)
+    val scope = HttpPublishScope()
+        .apply(block)
+        .also { it.validate() }
 
     val transport = HttpTransport(client = client)
 
