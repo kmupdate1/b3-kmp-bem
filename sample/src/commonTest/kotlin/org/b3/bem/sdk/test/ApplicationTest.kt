@@ -1,7 +1,6 @@
 package org.b3.bem.sdk.test
 
 import io.ktor.client.*
-import io.ktor.client.engine.cio.*
 import kotlinx.coroutines.runBlocking
 import kotlinx.io.buffered
 import kotlinx.io.files.Path
@@ -46,7 +45,7 @@ class ApplicationTest {
         }
 
         runBlocking {
-            http(client = HttpClient(CIO) {
+            http(client = HttpClient(clientEngine()) {
                 engine {}
             }) {
                 add(pump1Measured)
