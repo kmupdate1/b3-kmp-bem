@@ -18,7 +18,7 @@ import org.b3.bem.sdk.dsl.function.http
 import org.b3.bem.sdk.dsl.function.measure
 import org.b3.bem.sdk.format.Json
 import org.b3.bem.sdk.format.Xml
-import org.junit.Test
+import kotlin.test.Test
 
 class ApplicationTest {
 

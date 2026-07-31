@@ -1,5 +1,6 @@
 package org.b3.bem.core.equipment
 
+import kotlin.jvm.JvmInline
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
