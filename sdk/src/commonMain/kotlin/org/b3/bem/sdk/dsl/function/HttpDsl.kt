@@ -11,7 +11,7 @@ suspend fun http(client: HttpClient, block: HttpPublishScope.() -> Unit) {
         .apply(block)
         .also { it.validate() }
 
-    val transport = HttpTransport(client = client)
+    val transport = HttpTransport(client = client, baseUrl = scope.url)
 
     DefaultPublisher(
         format = Json,
