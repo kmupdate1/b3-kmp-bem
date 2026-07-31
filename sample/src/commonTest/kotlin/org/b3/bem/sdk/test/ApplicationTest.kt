@@ -1,6 +1,6 @@
 package org.b3.bem.sdk.test
 
-import kotlinx.serialization.json.Json
+import kotlinx.coroutines.runBlocking
 import org.b3.bem.generated.equipment.Battery1
 import org.b3.bem.generated.equipment.Pump1
 import org.b3.bem.generated.equipment.Pump2
@@ -9,12 +9,12 @@ import org.b3.bem.generated.extension.m3
 import org.b3.bem.generated.extension.wh
 import org.b3.bem.sdk.dsl.boundary
 import org.b3.bem.sdk.dsl.measure
-import org.junit.Test
+import org.b3.bem.sdk.dsl.publish
+import org.b3.bem.sdk.publish.json.Json
 
 class ApplicationTest {
 
-    @Test
-    fun generateBem() {
+    fun `user application sample execute test`() {
         val pump1Measured = Pump1.measure {
             it.electric outflow 120.wh
             it.water outflow 500.m3
@@ -36,6 +36,12 @@ class ApplicationTest {
             }
         }
 
-        // println(Json.encodeToString(pump1Measured))
+        runBlocking {
+            publish(Json) {
+                add(pump1Measured)
+                add(grid)
+                add(takeWater)
+            }
+        }
     }
 }
