@@ -6,7 +6,7 @@ import org.b3.bem.codec.xml.XmlCodec
 
 object Xml : Format<String> {
     override val codec: Codec<String> = XmlCodec(XML.recommended_1_0 {
-        indentString = "  "
+        indentString = "    "
     })
 
     override fun document(parts: List<String>): String =
