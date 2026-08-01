@@ -1,12 +1,10 @@
 package org.b3.bemtest.core
 
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.core.equipment.EquipmentId
-import org.b3.bem.core.resource.ResourceBinding
-import org.b3.bem.core.quantity.Quantity
+import org.b3.bem.core.equipment.RoleId
 
 object Pump : Equipment {
-    override val id: EquipmentId
+    override val id: RoleId
         get() = TODO("Not yet implemented")
     override val name = "Pump"
 }

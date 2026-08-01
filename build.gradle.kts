@@ -27,7 +27,9 @@ allprojects {
             url = uri("${repoUrl.orNull}/maven-public/")
             isAllowInsecureProtocol = !isPublic.get()
         }
+        mavenLocal()
         mavenCentral()
+        gradlePluginPortal()
     }
 
     plugins.withId("org.jetbrains.kotlin.jvm") {

@@ -7,10 +7,15 @@ import kotlinx.io.buffered
 import kotlinx.io.files.Path
 import kotlinx.io.files.SystemFileSystem
 import org.b3.bem.generated.equipment.Battery1
+import org.b3.bem.generated.equipment.Battery2
+import org.b3.bem.generated.equipment.EmployeeA
 import org.b3.bem.generated.equipment.Pump1
 import org.b3.bem.generated.equipment.Pump2
 import org.b3.bem.generated.equipment.Pump3
+import org.b3.bem.generated.extension.kwh
+import org.b3.bem.generated.extension.l
 import org.b3.bem.generated.extension.m3
+import org.b3.bem.generated.extension.month
 import org.b3.bem.generated.extension.wh
 import org.b3.bem.sdk.dsl.function.boundary
 import org.b3.bem.sdk.dsl.function.file
@@ -49,6 +54,20 @@ class ApplicationTest {
             }
         }
 
+        val farm = boundary("Off-Grid LABO Farm Play") {
+            EmployeeA.measure {
+                it.human inflow 1.5.month
+            }
+            Pump1.measure {
+                it.electric outflow 1.2.kwh
+                it.water outflow 500.l
+            }
+            Battery2.measure {
+                it.electric inflow 800.wh
+                it.electric outflow 300.wh
+            }
+        }
+
         runBlocking {
             http(client = HttpClient(clientEngine()) {
                 engine {}
@@ -56,7 +75,9 @@ class ApplicationTest {
                 url = Url("http://localhost:8080/facts")
 
                 add(pump1Measured)
+                add(takeWater)
                 add(grid)
+                add(farm)
             }
 
             file(format = Json) {
@@ -64,8 +85,9 @@ class ApplicationTest {
                     .buffered()
 
                 add(pump1Measured)
-                add(grid)
                 add(takeWater)
+                add(grid)
+                add(farm)
             }
 
             file(format = Xml) {
@@ -74,6 +96,8 @@ class ApplicationTest {
 
                 add(pump1Measured)
                 add(takeWater)
+                add(grid)
+                add(farm)
             }
 
             /*

@@ -12,14 +12,19 @@ object Xml : Format<String> {
     override fun document(parts: List<String>): String =
         buildString {
             append("""<?xml version="1.1"?>""")
-            append("\n")
+            append('\n')
             append("<Facts>\n")
 
             parts.forEach {
-                append(it.substringAfter("?>").trimStart())
+                append(
+                    it.substringAfter("?>")
+                        .trim()
+                        .indent()
+                )
                 append('\n')
             }
 
             append("</Facts>")
+            append('\n')
         }
 }

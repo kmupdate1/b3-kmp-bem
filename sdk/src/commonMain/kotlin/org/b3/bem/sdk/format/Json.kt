@@ -9,7 +9,7 @@ object Json : Format<String> {
     override fun document(parts: List<String>): String =
         parts.joinToString(
             prefix = "[\n",
-            postfix = "\n]",
+            postfix = "\n]\n",
             separator = ",\n",
-        )
+        ) { it.trim().indent() }
 }

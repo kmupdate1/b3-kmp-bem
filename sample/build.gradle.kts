@@ -31,3 +31,26 @@ kotlin {
         implementation(kotlin("test"))
     }
 }
+
+tasks.register("regenerate") {
+    description = ""
+    group = "bem"
+
+    dependsOn(":sample:clean")
+    finalizedBy(":sample:generateBem")
+}
+
+tasks.register("sampleTest") {
+    description = ""
+    group = "bem"
+    dependsOn(":sample:jvmTest")
+}
+
+tasks.register("dev") {
+    description = ""
+    group = "bem"
+    dependsOn(
+        "regenerate",
+        "sampleTest",
+    )
+}
