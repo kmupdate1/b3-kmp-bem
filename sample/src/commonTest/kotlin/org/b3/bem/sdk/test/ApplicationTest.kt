@@ -25,7 +25,8 @@ import org.b3.bem.sdk.dsl.function.document
 import org.b3.bem.sdk.dsl.function.fact
 import org.b3.bem.sdk.dsl.function.http
 import org.b3.bem.sdk.dsl.function.measure
-import org.b3.bem.sdk.format.Json
+import org.b3.bem.sdk.format.CompactJson
+import org.b3.bem.sdk.format.PrettyJson
 import org.b3.bem.sdk.format.Proto
 import org.b3.bem.sdk.format.Xml
 import kotlin.test.Test
@@ -91,7 +92,7 @@ class ApplicationTest {
                 include(farm)
             }
 
-            document(format = Json) {
+            document(format = CompactJson) {
                 output = SystemFileSystem.sink(Path("fact/documents/json/facts.json"))
                     .buffered()
 
@@ -113,7 +114,7 @@ class ApplicationTest {
 
             val timeZone = TimeZone.of("Asia/Tokyo")
 
-            fact(format = Json) {
+            fact(format = PrettyJson) {
                 outputFor = { fact ->
                     val localDateTime = fact.timestamp
                         .toLocalDateTime(timeZone)

@@ -2,7 +2,7 @@ package org.b3.bem.sdk.dsl.function
 
 import io.ktor.client.*
 import org.b3.bem.sdk.dsl.scope.HttpPublishScope
-import org.b3.bem.sdk.format.Json
+import org.b3.bem.sdk.format.PrettyJson
 import org.b3.bem.sdk.publish.DefaultPublisher
 import org.b3.bem.sdk.transport.http.HttpTransport
 
@@ -14,7 +14,7 @@ suspend fun http(client: HttpClient, block: HttpPublishScope.() -> Unit) {
     val transport = HttpTransport(client = client, baseUrl = scope.url)
 
     val publisher = DefaultPublisher(
-        format = Json,
+        format = PrettyJson,
         transport = transport,
     )
 
