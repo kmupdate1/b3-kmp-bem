@@ -19,12 +19,14 @@ import org.b3.bem.generated.extension.l
 import org.b3.bem.generated.extension.m3
 import org.b3.bem.generated.extension.month
 import org.b3.bem.generated.extension.wh
+import org.b3.bem.sdk.dsl.function.binaryFact
 import org.b3.bem.sdk.dsl.function.boundary
 import org.b3.bem.sdk.dsl.function.document
 import org.b3.bem.sdk.dsl.function.fact
 import org.b3.bem.sdk.dsl.function.http
 import org.b3.bem.sdk.dsl.function.measure
 import org.b3.bem.sdk.format.Json
+import org.b3.bem.sdk.format.Proto
 import org.b3.bem.sdk.format.Xml
 import kotlin.test.Test
 
@@ -153,11 +155,24 @@ class ApplicationTest {
                 )
             }
 
-            /*
-            binaryFile(format = Proto) {
+            binaryFact(format = Proto) {
+                outputFor = { fact ->
+                    val localDateTime = fact.timestamp
+                        .toLocalDateTime(timeZone)
 
+                    val directory = Path(
+                        "fact/${localDateTime.year}/${localDateTime.month}/${localDateTime.day}/${fact.id.value}"
+                    )
+
+                    SystemFileSystem.createDirectories(directory)
+                    SystemFileSystem.sink(Path(directory, "fact.pb"))
+                        .buffered()
+                }
+
+                include(farm)
             }
 
+            /*
             mqtt(Proto) {
                 add(grid)
                 add(pump1Measured)

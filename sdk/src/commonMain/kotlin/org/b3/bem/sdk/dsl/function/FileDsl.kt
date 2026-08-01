@@ -28,6 +28,19 @@ suspend fun fact(format: Format<String>, block: FactPublishScope.() -> Unit) {
     }
 }
 
+suspend fun document(format: DocumentFormat<String>, block: DocumentPublishScope.() -> Unit) {
+    val scope = DocumentPublishScope()
+        .apply(block)
+        .also { it.validate() }
+
+    val transport = FileTransport(output = scope.output)
+
+    DocumentPublisher(
+        format = format,
+        transport = transport,
+    ).publish(scope.build())
+}
+
 suspend fun binaryFact(format: Format<ByteArray>, block: FactPublishScope.() -> Unit) {
     val scope = FactPublishScope()
         .apply(block)
@@ -45,19 +58,6 @@ suspend fun binaryFact(format: Format<ByteArray>, block: FactPublishScope.() -> 
             output.close()
         }
     }
-}
-
-suspend fun document(format: DocumentFormat<String>, block: DocumentPublishScope.() -> Unit) {
-    val scope = DocumentPublishScope()
-        .apply(block)
-        .also { it.validate() }
-
-    val transport = FileTransport(output = scope.output)
-
-    DocumentPublisher(
-        format = format,
-        transport = transport,
-    ).publish(scope.build())
 }
 
 suspend fun binaryDocument(format: DocumentFormat<ByteArray>, block: DocumentPublishScope.() -> Unit) {
