@@ -82,7 +82,7 @@ class ApplicationTest {
             }
 
             document(format = Json) {
-                output = SystemFileSystem.sink(Path("fact/facts.json"))
+                output = SystemFileSystem.sink(Path("fact/documents/json/facts.json"))
                     .buffered()
 
                 add(pump1Measured)
@@ -92,7 +92,7 @@ class ApplicationTest {
             }
 
             document(format = Xml) {
-                output = SystemFileSystem.sink(Path("fact/facts.xml"))
+                output = SystemFileSystem.sink(Path("fact/documents/xml/facts.xml"))
                     .buffered()
 
                 add(pump1Measured)
@@ -100,9 +100,22 @@ class ApplicationTest {
                 add(grid)
                 add(farm)
             }
+
+            fact(format = Json) {
+                outputFor = {
+                    SystemFileSystem.sink(Path("fact/json/${it.id.value}.json"))
+                        .buffered()
+                }
+
+                add(pump1Measured)
+                add(takeWater)
+                add(grid)
+                add(farm)
+            }
+
             fact(format = Xml) {
-                output = {
-                    SystemFileSystem.sink(Path("fact/facts.x.xml"))
+                outputFor = {
+                    SystemFileSystem.sink(Path("fact/xml/${it.id.value}.xml"))
                         .buffered()
                 }
 

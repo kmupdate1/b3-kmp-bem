@@ -15,7 +15,7 @@ suspend fun fact(format: Format<String>, block: FactPublishScope.() -> Unit) {
         .also { it.validate() }
 
     scope.build().forEach { fact ->
-        val output = scope.output(fact)
+        val output = scope.outputFor(fact)
 
         try {
             DefaultPublisher(
@@ -34,7 +34,7 @@ suspend fun binaryFact(format: Format<ByteArray>, block: FactPublishScope.() -> 
         .also { it.validate() }
 
     scope.build().forEach { fact ->
-        val output = scope.output(fact)
+        val output = scope.outputFor(fact)
 
         try {
             DefaultPublisher(

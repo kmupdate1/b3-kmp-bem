@@ -4,9 +4,9 @@ import kotlinx.io.Sink
 import org.b3.bem.core.fact.CompositeFact
 
 class FactPublishScope : PublishScope() {
-    lateinit var output: (CompositeFact) -> Sink
+    lateinit var outputFor: (CompositeFact) -> Sink
 
     internal fun validate() {
-        check(::output.isInitialized) { "directory must be specified." }
+        check(::outputFor.isInitialized) { "directory must be specified." }
     }
 }
