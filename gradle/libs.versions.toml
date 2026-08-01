@@ -4,6 +4,7 @@ serialization = "1.11.0"
 coroutines = "1.11.0"
 datetime = "0.8.0"
 ktor = "3.5.0"
+compose = "1.11.1"
 xmlutil = "1.0.1"
 
 [libraries]
@@ -22,3 +23,5 @@ pdvrieze-xmlutil = { group = "io.github.pdvrieze.xmlutil", name = "serialization
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }

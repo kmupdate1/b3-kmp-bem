@@ -16,6 +16,7 @@ pluginManagement {
             isAllowInsecureProtocol = !isPublic.get()
         }
         gradlePluginPortal()
+        google()
         mavenCentral()
     }
 }
@@ -34,5 +35,7 @@ include(
 
     ":server",
 
-    ":sample",
+    ":samples:runtime",
+    ":samples:client",
+    ":samples:server",
 )

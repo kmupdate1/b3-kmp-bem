@@ -10,13 +10,19 @@ kotlin {
 
     iosArm64()
 
-    js()
+    js {
+        browser()
+        nodejs()
+        binaries.executable()
+    }
 
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+
+            api(project(":editor-compose"))
         }
         commonTest.dependencies {
             implementation(kotlin("test"))

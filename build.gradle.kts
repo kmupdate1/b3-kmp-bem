@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.plugin.serialization) apply false
+    alias(libs.plugins.kotlin.plugin.compose) apply false
+    alias(libs.plugins.compose) apply false
 }
 
 group = "org.bluebikebase.bem"
@@ -28,8 +30,8 @@ allprojects {
             url = uri("${repoUrl.orNull}/maven-public/")
             isAllowInsecureProtocol = !isPublic.get()
         }
+        google()
         mavenCentral()
-        gradlePluginPortal()
     }
 
     plugins.withId("org.jetbrains.kotlin.jvm") {

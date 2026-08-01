@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="editor-compose-js-0.1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/editor-compose/build/libs</output-path>
+    <root id="archive" name="editor-compose-js-0.1.0-SNAPSHOT.jar">
+      <element id="module-output" name="b3-bem.editor-compose.jsMain" />
+    </root>
+  </artifact>
+</component>

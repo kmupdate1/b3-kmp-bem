@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/editor-compose/b3-bem.editor-compose.commonMain.iml" filepath="$PROJECT_DIR$/.idea/modules/editor-compose/b3-bem.editor-compose.commonMain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/editor-compose/b3-bem.editor-compose.commonTest.iml" filepath="$PROJECT_DIR$/.idea/modules/editor-compose/b3-bem.editor-compose.commonTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/editor-core/b3-bem.editor-core.commonMain.iml" filepath="$PROJECT_DIR$/.idea/modules/editor-core/b3-bem.editor-core.commonMain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/editor-core/b3-bem.editor-core.commonTest.iml" filepath="$PROJECT_DIR$/.idea/modules/editor-core/b3-bem.editor-core.commonTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/editor-yaml/b3-bem.editor-yaml.commonMain.iml" filepath="$PROJECT_DIR$/.idea/modules/editor-yaml/b3-bem.editor-yaml.commonMain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/editor-yaml/b3-bem.editor-yaml.commonTest.iml" filepath="$PROJECT_DIR$/.idea/modules/editor-yaml/b3-bem.editor-yaml.commonTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/server/b3-bem.server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/server/b3-bem.server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/server/b3-bem.server.test.iml" filepath="$PROJECT_DIR$/.idea/modules/server/b3-bem.server.test.iml" />
     </modules>
