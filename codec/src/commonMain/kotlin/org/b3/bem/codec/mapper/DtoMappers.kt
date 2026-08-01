@@ -19,7 +19,7 @@ import org.b3.bem.core.fact.MeasurementContext
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 
-fun Quantity.toDto(): QuantityDto = QuantityDto(delta = value)
+fun Quantity.toDto(): QuantityDto = QuantityDto(delta = value, unit = unit.symbol)
 fun Equipment.toDto(): EquipmentDto = EquipmentDto(id = id.value, name = name)
 fun <Q : Quantity> Resource<Q>.toDto(): ResourceDto = ResourceDto(name = name)
 

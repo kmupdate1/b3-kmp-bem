@@ -23,11 +23,11 @@ allprojects {
     version = rootProject.version
 
     repositories {
+        mavenLocal()
         maven {
             url = uri("${repoUrl.orNull}/maven-public/")
             isAllowInsecureProtocol = !isPublic.get()
         }
-        mavenLocal()
         mavenCentral()
         gradlePluginPortal()
     }
