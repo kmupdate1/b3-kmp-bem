@@ -4,7 +4,7 @@ import nl.adaptivity.xmlutil.serialization.XML
 import org.b3.bem.codec.codec.Codec
 import org.b3.bem.codec.xml.XmlCodec
 
-object Xml : Format<String> {
+object Xml : DocumentFormat<String> {
     override val codec: Codec<String> = XmlCodec(XML.recommended_1_0 {
         indentString = "    "
     })

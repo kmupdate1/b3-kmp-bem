@@ -18,7 +18,7 @@ import org.b3.bem.generated.extension.m3
 import org.b3.bem.generated.extension.month
 import org.b3.bem.generated.extension.wh
 import org.b3.bem.sdk.dsl.function.boundary
-import org.b3.bem.sdk.dsl.function.file
+import org.b3.bem.sdk.dsl.function.document
 import org.b3.bem.sdk.dsl.function.http
 import org.b3.bem.sdk.dsl.function.measure
 import org.b3.bem.sdk.format.Json
@@ -80,7 +80,7 @@ class ApplicationTest {
                 add(farm)
             }
 
-            file(format = Json) {
+            document(format = Json) {
                 output = SystemFileSystem.sink(Path("facts.json"))
                     .buffered()
 
@@ -90,7 +90,7 @@ class ApplicationTest {
                 add(farm)
             }
 
-            file(format = Xml) {
+            document(format = Xml) {
                 output = SystemFileSystem.sink(Path("facts.xml"))
                     .buffered()
 
