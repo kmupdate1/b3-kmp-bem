@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="editor-core-jvm-0.1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/editor-core/build/libs</output-path>
+    <root id="archive" name="editor-core-jvm-0.1.0-SNAPSHOT.jar" />
+  </artifact>
+</component>

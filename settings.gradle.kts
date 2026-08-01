@@ -27,6 +27,12 @@ include(
     ":codec",
     ":protocol",
     ":sdk",
+
+    "editor-core",
+    "editor-yaml",
+    "editor-compose",
+
     ":server",
+
     ":sample",
 )
