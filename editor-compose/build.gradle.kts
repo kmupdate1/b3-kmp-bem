@@ -10,7 +10,10 @@ kotlin {
 
     iosArm64()
 
-    js()
+    js {
+        browser()
+        nodejs()
+    }
 
     sourceSets {
         commonMain.dependencies {
