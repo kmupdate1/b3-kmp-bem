@@ -13,8 +13,10 @@ suspend fun http(client: HttpClient, block: HttpPublishScope.() -> Unit) {
 
     val transport = HttpTransport(client = client, baseUrl = scope.url)
 
-    DefaultPublisher(
+    val publisher = DefaultPublisher(
         format = Json,
         transport = transport,
-    ).publish(scope.build())
+    )
+
+    scope.build().forEach { fact -> publisher.publish(fact) }
 }

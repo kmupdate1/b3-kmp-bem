@@ -2,7 +2,7 @@ package org.b3.bem.sdk.dsl.scope
 
 import kotlinx.io.Sink
 
-class FilePublishScope : PublishScope() {
+class DocumentPublishScope : PublishScope() {
     lateinit var output: Sink
 
     internal fun validate() {

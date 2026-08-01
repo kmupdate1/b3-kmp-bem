@@ -1,18 +1,54 @@
 package org.b3.bem.sdk.dsl.function
 
-import org.b3.bem.sdk.dsl.scope.FilePublishScope
+import org.b3.bem.sdk.dsl.scope.DocumentPublishScope
+import org.b3.bem.sdk.dsl.scope.FactPublishScope
 import org.b3.bem.sdk.format.DocumentFormat
 import org.b3.bem.sdk.format.Format
+import org.b3.bem.sdk.publish.DefaultPublisher
 import org.b3.bem.sdk.publish.DocumentPublisher
 import org.b3.bem.sdk.transport.file.ByteFileTransport
 import org.b3.bem.sdk.transport.file.FileTransport
 
-suspend fun fact(format: Format<String>, block: FilePublishScope.() -> Unit) { TODO() }
+suspend fun fact(format: Format<String>, block: FactPublishScope.() -> Unit) {
+    val scope = FactPublishScope()
+        .apply(block)
+        .also { it.validate() }
 
-suspend fun binaryFact(format: Format<ByteArray>, block: FilePublishScope.() -> Unit) { TODO() }
+    scope.build().forEach { fact ->
+        val output = scope.output(fact)
 
-suspend fun document(format: DocumentFormat<String>, block: FilePublishScope.() -> Unit) {
-    val scope = FilePublishScope()
+        try {
+            DefaultPublisher(
+                format = format,
+                transport = FileTransport(output = output),
+            ).publish(fact)
+        } finally {
+            output.close()
+        }
+    }
+}
+
+suspend fun binaryFact(format: Format<ByteArray>, block: FactPublishScope.() -> Unit) {
+    val scope = FactPublishScope()
+        .apply(block)
+        .also { it.validate() }
+
+    scope.build().forEach { fact ->
+        val output = scope.output(fact)
+
+        try {
+            DefaultPublisher(
+                format = format,
+                transport = ByteFileTransport(output = output),
+            ).publish(fact)
+        } finally {
+            output.close()
+        }
+    }
+}
+
+suspend fun document(format: DocumentFormat<String>, block: DocumentPublishScope.() -> Unit) {
+    val scope = DocumentPublishScope()
         .apply(block)
         .also { it.validate() }
 
@@ -24,8 +60,8 @@ suspend fun document(format: DocumentFormat<String>, block: FilePublishScope.() 
     ).publish(scope.build())
 }
 
-suspend fun binaryDocument(format: DocumentFormat<ByteArray>, block: FilePublishScope.() -> Unit) {
-    val scope = FilePublishScope()
+suspend fun binaryDocument(format: DocumentFormat<ByteArray>, block: DocumentPublishScope.() -> Unit) {
+    val scope = DocumentPublishScope()
         .apply(block)
         .also { it.validate() }
 

@@ -19,6 +19,7 @@ import org.b3.bem.generated.extension.month
 import org.b3.bem.generated.extension.wh
 import org.b3.bem.sdk.dsl.function.boundary
 import org.b3.bem.sdk.dsl.function.document
+import org.b3.bem.sdk.dsl.function.fact
 import org.b3.bem.sdk.dsl.function.http
 import org.b3.bem.sdk.dsl.function.measure
 import org.b3.bem.sdk.format.Json
@@ -81,7 +82,7 @@ class ApplicationTest {
             }
 
             document(format = Json) {
-                output = SystemFileSystem.sink(Path("facts.json"))
+                output = SystemFileSystem.sink(Path("fact/facts.json"))
                     .buffered()
 
                 add(pump1Measured)
@@ -91,8 +92,19 @@ class ApplicationTest {
             }
 
             document(format = Xml) {
-                output = SystemFileSystem.sink(Path("facts.xml"))
+                output = SystemFileSystem.sink(Path("fact/facts.xml"))
                     .buffered()
+
+                add(pump1Measured)
+                add(takeWater)
+                add(grid)
+                add(farm)
+            }
+            fact(format = Xml) {
+                output = {
+                    SystemFileSystem.sink(Path("fact/facts.x.xml"))
+                        .buffered()
+                }
 
                 add(pump1Measured)
                 add(takeWater)
