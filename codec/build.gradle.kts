@@ -14,6 +14,8 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.serialization.protobuf)
 
+            implementation(libs.pdvrieze.xmlutil)
+
             api(project(":core"))
         }
         commonTest.dependencies {
