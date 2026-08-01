@@ -1,4 +1,4 @@
-package org.b3.bem.codec.json
+package org.b3.bem.codec.codec.json
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.ClassDiscriminatorMode

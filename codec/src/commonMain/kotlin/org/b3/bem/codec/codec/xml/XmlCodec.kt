@@ -1,4 +1,4 @@
-package org.b3.bem.codec.xml
+package org.b3.bem.codec.codec.xml
 
 import kotlinx.serialization.StringFormat
 import org.b3.bem.codec.codec.Codec

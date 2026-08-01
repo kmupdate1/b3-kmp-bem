@@ -1,4 +1,4 @@
-package org.b3.bem.codec.proto
+package org.b3.bem.codec.codec.proto
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromByteArray

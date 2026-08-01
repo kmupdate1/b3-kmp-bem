@@ -1,7 +1,7 @@
 package org.b3.bem.sdk.format
 
 import org.b3.bem.codec.codec.Codec
-import org.b3.bem.codec.json.JsonCodec
+import org.b3.bem.codec.codec.json.JsonCodec
 
 object Json : DocumentFormat<String> {
     override val codec: Codec<String> = JsonCodec
