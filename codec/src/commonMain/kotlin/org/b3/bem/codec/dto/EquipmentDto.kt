@@ -5,6 +5,6 @@ import kotlin.uuid.Uuid
 
 @Serializable
 data class EquipmentDto(
-    val key: Uuid,
+    val id: Uuid,
     val name: String,
 )

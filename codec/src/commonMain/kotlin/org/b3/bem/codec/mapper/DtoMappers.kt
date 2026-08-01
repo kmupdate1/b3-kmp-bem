@@ -10,7 +10,6 @@ import org.b3.bem.codec.dto.MeasurementContextDto
 import org.b3.bem.codec.dto.QuantityDto
 import org.b3.bem.codec.dto.ResourceDto
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.core.event.FactId
 import org.b3.bem.core.fact.BoundaryContext
 import org.b3.bem.core.fact.Context
 import org.b3.bem.core.fact.CompositeFact
@@ -20,8 +19,8 @@ import org.b3.bem.core.fact.MeasurementContext
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 
-fun Quantity.toDto(): QuantityDto = QuantityDto(value = value)
-fun Equipment.toDto(): EquipmentDto = EquipmentDto(key = id.value, name = name)
+fun Quantity.toDto(): QuantityDto = QuantityDto(delta = value)
+fun Equipment.toDto(): EquipmentDto = EquipmentDto(id = id.value, name = name)
 fun <Q : Quantity> Resource<Q>.toDto(): ResourceDto = ResourceDto(name = name)
 
 fun Context.toDto(): ContextDto =

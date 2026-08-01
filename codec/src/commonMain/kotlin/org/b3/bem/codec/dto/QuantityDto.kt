@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class QuantityDto(
-    val value: Double,
+    val delta: Double,
 )
