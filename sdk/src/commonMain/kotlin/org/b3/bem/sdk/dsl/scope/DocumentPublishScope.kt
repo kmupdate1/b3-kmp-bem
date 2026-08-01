@@ -1,7 +1,9 @@
 package org.b3.bem.sdk.dsl.scope
 
 import kotlinx.io.Sink
+import org.b3.bem.sdk.dsl.annotation.BemDsl
 
+@BemDsl
 class DocumentPublishScope : PublishScope() {
     lateinit var output: Sink
 

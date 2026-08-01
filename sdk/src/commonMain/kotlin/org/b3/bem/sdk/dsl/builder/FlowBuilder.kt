@@ -5,8 +5,10 @@ import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 import org.b3.bem.core.fact.Direction
 import org.b3.bem.core.fact.Flow
+import org.b3.bem.sdk.dsl.annotation.BemDsl
 import kotlin.time.Instant
 
+@BemDsl
 abstract class FlowBuilder(
     private val timestamp: Instant,
 ) {

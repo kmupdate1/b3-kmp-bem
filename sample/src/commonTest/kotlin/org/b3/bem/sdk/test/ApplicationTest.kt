@@ -3,6 +3,8 @@ package org.b3.bem.sdk.test
 import io.ktor.client.*
 import io.ktor.http.Url
 import kotlinx.coroutines.runBlocking
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import kotlinx.io.buffered
 import kotlinx.io.files.Path
 import kotlinx.io.files.SystemFileSystem
@@ -101,9 +103,19 @@ class ApplicationTest {
                 add(farm)
             }
 
+            val timeZone = TimeZone.of("Asia/Tokyo")
+
             fact(format = Json) {
-                outputFor = {
-                    SystemFileSystem.sink(Path("fact/json/${it.id.value}.json"))
+                outputFor = { fact ->
+                    val localDateTime = fact.timestamp
+                        .toLocalDateTime(timeZone)
+
+                    val directory = Path(
+                        "fact/${localDateTime.year}/${localDateTime.month}/${localDateTime.day}/${fact.id.value}"
+                    )
+
+                    SystemFileSystem.createDirectories(directory)
+                    SystemFileSystem.sink(Path(directory, "fact.json"))
                         .buffered()
                 }
 
@@ -114,8 +126,16 @@ class ApplicationTest {
             }
 
             fact(format = Xml) {
-                outputFor = {
-                    SystemFileSystem.sink(Path("fact/xml/${it.id.value}.xml"))
+                outputFor = { fact ->
+                    val localDateTime = fact.timestamp
+                        .toLocalDateTime(timeZone)
+
+                    val directory = Path(
+                        "fact/${localDateTime.year}/${localDateTime.month}/${localDateTime.day}/${fact.id.value}"
+                    )
+
+                    SystemFileSystem.createDirectories(directory)
+                    SystemFileSystem.sink(Path(directory, "fact.xml"))
                         .buffered()
                 }
 

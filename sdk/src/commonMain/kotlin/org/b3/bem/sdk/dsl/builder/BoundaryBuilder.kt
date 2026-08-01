@@ -4,8 +4,10 @@ import org.b3.bem.core.equipment.Equipment
 import org.b3.bem.core.fact.FactId
 import org.b3.bem.core.fact.BoundaryContext
 import org.b3.bem.core.fact.CompositeFact
+import org.b3.bem.sdk.dsl.annotation.BemDsl
 import kotlin.time.Clock
 
+@BemDsl
 class BoundaryBuilder(private val scope: String) {
     fun <E : Equipment> E.measure(
         block: MeasurementBuilder<E>.(E) -> Unit,

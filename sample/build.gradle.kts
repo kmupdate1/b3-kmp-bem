@@ -17,7 +17,9 @@ kotlin {
 
             api(project(":sdk"))
         }
-        commonTest.dependencies {  }
+        commonTest.dependencies {
+            implementation(libs.kotlinx.datetime)
+        }
 
         jvmMain.dependencies {
             implementation(libs.ktor.client.cio)
