@@ -38,6 +38,7 @@ class ApplicationTest {
         }
 
         val takeWater = boundary("Take Water from river") {
+            add(pump1Measured)
             Pump2.measure {
                 it.electric inflow 600.wh
                 it.electric outflow 500.wh
@@ -47,6 +48,10 @@ class ApplicationTest {
         }
 
         val grid = boundary("Electric Power Grid") {
+            add(pump1Measured)
+            boundary("Water Taking") {
+                add(takeWater)
+            }
             Battery1.measure {
                 it.electric inflow 800.wh
                 it.electric outflow 200.wh
@@ -58,6 +63,7 @@ class ApplicationTest {
         }
 
         val farm = boundary("Off-Grid LABO Farm Play") {
+            add(grid)
             EmployeeA.measure {
                 it.human inflow 1.5.month
             }
@@ -77,30 +83,30 @@ class ApplicationTest {
             }) {
                 url = Url("http://localhost:8080/facts")
 
-                add(pump1Measured)
-                add(takeWater)
-                add(grid)
-                add(farm)
+                include(pump1Measured)
+                include(takeWater)
+                include(grid)
+                include(farm)
             }
 
             document(format = Json) {
                 output = SystemFileSystem.sink(Path("fact/documents/json/facts.json"))
                     .buffered()
 
-                add(pump1Measured)
-                add(takeWater)
-                add(grid)
-                add(farm)
+                include(pump1Measured)
+                include(takeWater)
+                include(grid)
+                include(farm)
             }
 
             document(format = Xml) {
                 output = SystemFileSystem.sink(Path("fact/documents/xml/facts.xml"))
                     .buffered()
 
-                add(pump1Measured)
-                add(takeWater)
-                add(grid)
-                add(farm)
+                include(pump1Measured)
+                include(takeWater)
+                include(grid)
+                include(farm)
             }
 
             val timeZone = TimeZone.of("Asia/Tokyo")
@@ -119,10 +125,10 @@ class ApplicationTest {
                         .buffered()
                 }
 
-                add(pump1Measured)
-                add(takeWater)
-                add(grid)
-                add(farm)
+                include(pump1Measured)
+                include(takeWater)
+                include(grid)
+                include(farm)
             }
 
             fact(format = Xml) {
@@ -139,10 +145,12 @@ class ApplicationTest {
                         .buffered()
                 }
 
-                add(pump1Measured)
-                add(takeWater)
-                add(grid)
-                add(farm)
+                include(
+                    pump1Measured,
+                    takeWater,
+                    grid,
+                    farm,
+                )
             }
 
             /*
