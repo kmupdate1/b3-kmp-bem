@@ -1,6 +1,5 @@
 package org.b3.bem.core.fact
 
-import org.b3.bem.core.event.FactId
 import kotlin.time.Instant
 
 data class CompositeFact(

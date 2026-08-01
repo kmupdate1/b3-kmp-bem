@@ -1,7 +1,7 @@
 package org.b3.bem.sdk.dsl.builder
 
 import org.b3.bem.core.equipment.Equipment
-import org.b3.bem.core.event.FactId
+import org.b3.bem.core.fact.FactId
 import org.b3.bem.core.fact.BoundaryContext
 import org.b3.bem.core.fact.CompositeFact
 import kotlin.time.Clock

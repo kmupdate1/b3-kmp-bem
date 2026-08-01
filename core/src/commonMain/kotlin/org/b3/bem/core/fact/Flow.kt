@@ -1,6 +1,5 @@
 package org.b3.bem.core.fact
 
-import org.b3.bem.core.event.FactId
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 import kotlin.time.Instant

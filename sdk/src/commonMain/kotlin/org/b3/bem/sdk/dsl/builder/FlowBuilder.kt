@@ -1,6 +1,6 @@
 package org.b3.bem.sdk.dsl.builder
 
-import org.b3.bem.core.event.FactId
+import org.b3.bem.core.fact.FactId
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 import org.b3.bem.core.fact.Direction

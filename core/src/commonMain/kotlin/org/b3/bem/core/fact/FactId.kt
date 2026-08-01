@@ -1,4 +1,4 @@
-package org.b3.bem.core.event
+package org.b3.bem.core.fact
 
 import kotlin.jvm.JvmInline
 import kotlin.uuid.ExperimentalUuidApi
