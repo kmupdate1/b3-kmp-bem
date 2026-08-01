@@ -5,10 +5,10 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @JvmInline
-value class EventId
-private constructor(private val value: Uuid) {
+value class FactId
+private constructor(val value: Uuid) {
     companion object {
         @OptIn(ExperimentalUuidApi::class)
-        fun gen(): EventId = EventId(value = Uuid.generateV7())
+        fun gen(): FactId = FactId(value = Uuid.generateV7())
     }
 }

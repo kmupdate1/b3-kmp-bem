@@ -1,13 +1,19 @@
 package org.b3.bem.sdk.dsl.builder
 
+import org.b3.bem.core.event.FactId
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 import org.b3.bem.core.fact.Direction
 import org.b3.bem.core.fact.Flow
+import kotlin.time.Instant
 
-abstract class FlowBuilder {
+abstract class FlowBuilder(
+    private val timestamp: Instant,
+) {
     infix fun <Q : Quantity> Resource<Q>.inflow(quantity: Q) {
         flows += Flow(
+            id = FactId.gen(),
+            timestamp = timestamp,
             resource = this,
             direction = Direction.INFLOW,
             quantity = quantity,
@@ -16,6 +22,8 @@ abstract class FlowBuilder {
 
     infix fun <Q : Quantity> Resource<Q>.outflow(quantity: Q) {
         flows += Flow(
+            id = FactId.gen(),
+            timestamp = timestamp,
             resource = this,
             direction = Direction.OUTFLOW,
             quantity = quantity,

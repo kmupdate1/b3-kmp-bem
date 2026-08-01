@@ -10,6 +10,7 @@ import org.b3.bem.codec.dto.MeasurementContextDto
 import org.b3.bem.codec.dto.QuantityDto
 import org.b3.bem.codec.dto.ResourceDto
 import org.b3.bem.core.equipment.Equipment
+import org.b3.bem.core.event.FactId
 import org.b3.bem.core.fact.BoundaryContext
 import org.b3.bem.core.fact.Context
 import org.b3.bem.core.fact.CompositeFact
@@ -31,6 +32,8 @@ fun Context.toDto(): ContextDto =
 
 fun <Q : Quantity> Flow<Q>.toDto(): FlowDto =
     FlowDto(
+        id = id.value,
+        timestamp = timestamp.toString(),
         resource = resource.toDto(),
         quantity = quantity.toDto(),
         direction = direction.name,
@@ -38,6 +41,8 @@ fun <Q : Quantity> Flow<Q>.toDto(): FlowDto =
 
 fun CompositeFact.toDto(): CompositeFactDto =
     CompositeFactDto(
+        id = id.value,
+        timestamp = timestamp.toString(),
         context = context.toDto(),
         facts = facts.map { it.toDto() },
     )

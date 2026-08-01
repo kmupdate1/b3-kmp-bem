@@ -6,7 +6,7 @@ import org.b3.bem.core.resource.Resource
 import kotlin.time.Instant
 
 data class BusinessEvent<Q : Quantity>(
-    val id: EventId,
+    val id: FactId,
     val time: Instant,
     val resource: Equipment,
     val property: Resource<Q>,
