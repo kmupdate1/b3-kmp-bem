@@ -13,6 +13,8 @@ dependencies {
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.server.status.pages)
 
+    implementation(libs.mongodb.driver.kotlin.coroutine)
+
     implementation(libs.logback.classic)
 
     implementation(libs.b3.runtime.core)

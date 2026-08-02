@@ -4,6 +4,7 @@ serialization = "1.11.0"
 coroutines = "1.11.0"
 datetime = "0.8.0"
 ktor = "3.5.0"
+mongodb = "5.9.1"
 logback = "1.5.38"
 compose = "1.11.1"
 xmlutil = "1.0.1"
@@ -25,6 +26,8 @@ ktor-server-cio = { group = "io.ktor", name = "ktor-server-cio", version.ref = "
 ktor-server-content-negotiation = { group = "io.ktor", name = "ktor-server-content-negotiation", version.ref = "ktor" }
 ktor-server-call-logging = { group = "io.ktor", name = "ktor-server-call-logging", version.ref = "ktor" }
 ktor-server-status-pages = { group = "io.ktor", name = "ktor-server-status-pages", version.ref = "ktor" }
+
+mongodb-driver-kotlin-coroutine = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongodb" }
 
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
 

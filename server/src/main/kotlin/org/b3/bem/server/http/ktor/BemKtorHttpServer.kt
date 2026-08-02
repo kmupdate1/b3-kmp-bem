@@ -10,7 +10,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.json.Json
 import org.b3.bem.model.codec.json.JsonCodec
-import org.b3.bem.model.dto.FactDto
 import org.b3.bem.protocol.http.Api
 import org.b3.bem.protocol.http.Endpoints
 import org.b3.bem.protocol.http.HttpProtocol
