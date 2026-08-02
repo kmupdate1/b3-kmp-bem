@@ -2,8 +2,8 @@ package org.b3.bem.sdk.format
 
 import nl.adaptivity.xmlutil.core.XmlVersion
 import nl.adaptivity.xmlutil.serialization.XML
-import org.b3.bem.codec.codec.Codec
-import org.b3.bem.codec.codec.xml.XmlCodec
+import org.b3.bem.model.codec.Codec
+import org.b3.bem.model.codec.xml.XmlCodec
 
 object Xml : DocumentFormat<String> {
     override val codec: Codec<String> = XmlCodec(XML.recommended_1_0 {

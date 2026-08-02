@@ -2,6 +2,7 @@ package org.b3.bem.sdk.transport.http
 
 import io.ktor.http.*
 import org.b3.bem.protocol.http.Api
+import org.b3.bem.protocol.http.HttpProtocol
 
 internal class EndpointUrlBuilder private constructor(
     private val builder: URLBuilder,

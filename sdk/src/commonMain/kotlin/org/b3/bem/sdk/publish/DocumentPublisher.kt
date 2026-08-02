@@ -1,6 +1,6 @@
 package org.b3.bem.sdk.publish
 
-import org.b3.bem.codec.mapper.toDto
+import org.b3.bem.model.mapper.toDto
 import org.b3.bem.core.fact.CompositeFact
 import org.b3.bem.sdk.format.DocumentFormat
 import org.b3.bem.sdk.transport.Transport

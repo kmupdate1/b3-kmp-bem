@@ -18,11 +18,15 @@ kotlin {
             api(project(":dsl"))
         }
         commonTest.dependencies {
+            implementation(libs.ktor.client.logging)
             implementation(libs.kotlinx.datetime)
         }
 
         jvmMain.dependencies {
             implementation(libs.ktor.client.cio)
+        }
+        jvmTest.dependencies {
+            implementation(libs.logback.classic)
         }
 
         iosMain.dependencies {

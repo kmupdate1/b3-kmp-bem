@@ -25,7 +25,7 @@ rootProject.name = "b3-bem"
 
 include(
     ":core",
-    ":codec",
+    ":model",
     ":protocol",
     ":sdk",
     ":dsl",

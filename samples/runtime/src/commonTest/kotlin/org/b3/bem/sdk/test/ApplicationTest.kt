@@ -1,6 +1,10 @@
 package org.b3.bem.sdk.test
 
 import io.ktor.client.*
+import io.ktor.client.plugins.logging.DEFAULT
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.TimeZone
@@ -68,9 +72,12 @@ class ApplicationTest {
 
         runBlocking {
             http(client = HttpClient(clientEngine()) {
-                engine {}
+                install(Logging) {
+                    logger = Logger.DEFAULT
+                    level = LogLevel.HEADERS
+                }
             }) {
-                url = Url("http://localhost:8080/")
+                url = Url("http://127.0.0.1:8000/")
 
                 include(pump1Measured)
                 include(takeWater)

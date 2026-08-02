@@ -1,7 +1,7 @@
-package org.b3.bem.sdk.transport.http
+package org.b3.bem.protocol.http
 
 import org.b3.bem.protocol.version.ProtocolVersion
 
-internal object HttpProtocol {
+object HttpProtocol {
     const val VERSION = ProtocolVersion.V1
 }
