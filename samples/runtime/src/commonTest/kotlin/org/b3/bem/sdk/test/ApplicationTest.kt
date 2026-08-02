@@ -70,7 +70,7 @@ class ApplicationTest {
             http(client = HttpClient(clientEngine()) {
                 engine {}
             }) {
-                url = Url("http://localhost:8080/facts")
+                url = Url("http://localhost:8080/")
 
                 include(pump1Measured)
                 include(takeWater)

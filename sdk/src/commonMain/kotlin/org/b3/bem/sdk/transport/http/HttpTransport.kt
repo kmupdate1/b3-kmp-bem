@@ -1,6 +1,6 @@
 package org.b3.bem.sdk.transport.http
 
-import io.ktor.client.HttpClient
+import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import org.b3.bem.protocol.http.Endpoints
@@ -11,10 +11,9 @@ class HttpTransport (
     private val baseUrl: Url,
 ) : Transport<String> {
     override suspend fun send(data: String) {
-        client.post {
-            url.takeFrom(baseUrl)
-            url.encodedPath = Endpoints.Facts.path
+        val url = EndpointUrlBuilder.build(baseUrl = baseUrl, endpoint = Endpoints.Facts.path)
 
+        client.post(url = url) {
             contentType(ContentType.Application.Json)
             setBody(data)
         }
