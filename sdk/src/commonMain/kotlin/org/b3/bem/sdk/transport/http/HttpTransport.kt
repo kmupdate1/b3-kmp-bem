@@ -11,7 +11,10 @@ class HttpTransport (
     private val baseUrl: Url,
 ) : Transport<String> {
     override suspend fun send(data: String) {
-        val url = EndpointUrlBuilder.build(baseUrl = baseUrl, endpoint = Endpoints.Facts.path)
+        val url = EndpointUrlBuilder
+            .baseUrl(baseUrl)
+            .endpoint(Endpoints.Facts.path)
+            .build()
 
         client.post(url = url) {
             contentType(ContentType.Application.Json)
