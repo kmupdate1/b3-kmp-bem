@@ -6,7 +6,7 @@ import io.ktor.http.*
 import org.b3.bem.protocol.http.Endpoints
 import org.b3.bem.sdk.transport.Transport
 
-class HttpTransport internal constructor(
+class HttpTransport (
     private val client: HttpClient,
     private val baseUrl: Url,
 ) : Transport<String> {

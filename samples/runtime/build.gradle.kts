@@ -15,7 +15,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.client.core)
 
-            api(project(":sdk"))
+            api(project(":dsl"))
         }
         commonTest.dependencies {
             implementation(libs.kotlinx.datetime)

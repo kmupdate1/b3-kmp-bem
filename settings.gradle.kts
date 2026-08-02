@@ -28,6 +28,7 @@ include(
     ":codec",
     ":protocol",
     ":sdk",
+    ":dsl",
 
     "editor-core",
     "editor-yaml",

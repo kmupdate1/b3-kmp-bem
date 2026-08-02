@@ -1,11 +1,11 @@
-package org.b3.bem.sdk.dsl.builder
+package org.b3.bem.dsl.builder
 
 import org.b3.bem.core.fact.FactId
 import org.b3.bem.core.quantity.Quantity
 import org.b3.bem.core.resource.Resource
 import org.b3.bem.core.fact.Direction
 import org.b3.bem.core.fact.Flow
-import org.b3.bem.sdk.dsl.annotation.BemDsl
+import org.b3.bem.dsl.annotation.BemDsl
 import kotlin.time.Instant
 
 @BemDsl

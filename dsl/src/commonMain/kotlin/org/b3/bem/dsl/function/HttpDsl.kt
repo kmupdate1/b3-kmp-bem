@@ -1,7 +1,7 @@
-package org.b3.bem.sdk.dsl.function
+package org.b3.bem.dsl.function
 
 import io.ktor.client.*
-import org.b3.bem.sdk.dsl.scope.HttpPublishScope
+import org.b3.bem.dsl.scope.HttpPublishScope
 import org.b3.bem.sdk.format.PrettyJson
 import org.b3.bem.sdk.publish.DefaultPublisher
 import org.b3.bem.sdk.transport.http.HttpTransport

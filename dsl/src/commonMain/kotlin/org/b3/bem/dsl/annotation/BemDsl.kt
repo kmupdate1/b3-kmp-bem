@@ -1,4 +1,4 @@
-package org.b3.bem.sdk.dsl.annotation
+package org.b3.bem.dsl.annotation
 
 @DslMarker
 @Target(AnnotationTarget.CLASS, AnnotationTarget.TYPE, AnnotationTarget.FUNCTION)

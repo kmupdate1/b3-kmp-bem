@@ -1,7 +1,7 @@
-package org.b3.bem.sdk.dsl.function
+package org.b3.bem.dsl.function
 
-import org.b3.bem.sdk.dsl.scope.DocumentPublishScope
-import org.b3.bem.sdk.dsl.scope.FactPublishScope
+import org.b3.bem.dsl.scope.DocumentPublishScope
+import org.b3.bem.dsl.scope.FactPublishScope
 import org.b3.bem.sdk.format.DocumentFormat
 import org.b3.bem.sdk.format.Format
 import org.b3.bem.sdk.publish.DefaultPublisher

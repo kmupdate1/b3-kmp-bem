@@ -1,8 +1,8 @@
-package org.b3.bem.sdk.dsl.scope
+package org.b3.bem.dsl.scope
 
 import kotlinx.io.Sink
 import org.b3.bem.core.fact.CompositeFact
-import org.b3.bem.sdk.dsl.annotation.BemDsl
+import org.b3.bem.dsl.annotation.BemDsl
 
 @BemDsl
 class FactPublishScope : PublishScope() {
