@@ -1,5 +1,5 @@
 package org.b3.bem.protocol.http
 
 object Endpoints {
-    val Facts = HttpEndpoint.path("${Api.BasePath}/facts")
+    val Facts = HttpEndpoint.path("${Api.BASE_PATH}/facts")
 }
