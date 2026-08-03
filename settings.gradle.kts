@@ -30,6 +30,8 @@ include(
     ":sdk",
     ":dsl",
 
+    ":iot:agent",
+
     "editor-core",
     "editor-yaml",
     "editor-compose",

@@ -1,7 +1,4 @@
-import org.gradle.kotlin.dsl.`maven-publish`
-
 plugins {
-    `maven-publish`
     alias(libs.plugins.kotlin.multiplatform)
 }
 
@@ -9,14 +6,11 @@ kotlin {
     jvm()
     linuxArm64()
 
-    iosArm64()
-
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.ktor.client.core)
-
-            api(project(":sdk"))
+            implementation(project(":sdk"))
         }
+
         commonTest.dependencies {
             implementation(kotlin("test"))
         }

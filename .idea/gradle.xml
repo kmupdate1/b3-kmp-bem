@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/editor-compose" />
             <option value="$PROJECT_DIR$/editor-core" />
             <option value="$PROJECT_DIR$/editor-yaml" />
+            <option value="$PROJECT_DIR$/iot" />
+            <option value="$PROJECT_DIR$/iot/agent" />
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/protocol" />
             <option value="$PROJECT_DIR$/samples" />
