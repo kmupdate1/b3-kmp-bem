@@ -7,17 +7,13 @@ plugins {
 dependencies {
     implementation(libs.kotlinx.serialization.json)
 
-    implementation(libs.ktor.server.core)
-    implementation(libs.ktor.server.cio)
-    implementation(libs.ktor.server.call.logging)
-    implementation(libs.ktor.server.content.negotiation)
-    implementation(libs.ktor.server.status.pages)
-
     implementation(libs.mongodb.driver.kotlin.coroutine)
 
     implementation(libs.logback.classic)
 
-    implementation(libs.b3.runtime.core)
+    implementation(libs.foundation.runtime)
+    implementation(libs.foundation.ioe.http)
+    implementation(libs.foundation.ioe.ktor)
 
     api(project(":model"))
     api(project(":protocol"))

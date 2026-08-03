@@ -33,7 +33,9 @@ logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.
 
 pdvrieze-xmlutil = { group = "io.github.pdvrieze.xmlutil", name = "serialization", version.ref = "xmlutil" }
 
-b3-runtime-core = { group = "org.bluebikebase.runtime", name = "b3-runtime-core", version.ref = "b3" }
+foundation-runtime = { group = "org.bluebikebase.foundation", name = "runtime", version.ref = "b3" }
+foundation-ioe-http = { group = "org.bluebikebase.foundation", name = "io-engine-http", version.ref = "b3" }
+foundation-ioe-ktor = { group = "org.bluebikebase.foundation", name = "io-engine-ktor", version.ref = "b3" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
