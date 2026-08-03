@@ -28,6 +28,7 @@ foundation-runtime = { group = "org.bluebikebase.foundation", name = "runtime", 
 foundation-ioe-http = { group = "org.bluebikebase.foundation", name = "io-engine-http", version.ref = "b3" }
 foundation-ioe-ktor = { group = "org.bluebikebase.foundation", name = "io-engine-ktor", version.ref = "b3" }
 foundation-ioe-mongo = { group = "org.bluebikebase.foundation", name = "io-engine-mongo", version.ref = "b3" }
+foundation-ioe-config = { group = "org.bluebikebase.foundation", name = "io-engine-config", version.ref = "b3" }
 foundation-ioe-logging = { group = "org.bluebikebase.foundation", name = "io-engine-logging", version.ref = "b3" }
 
 [plugins]

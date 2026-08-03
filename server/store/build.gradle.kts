@@ -11,6 +11,7 @@ dependencies {
     implementation(libs.foundation.ioe.http)
     implementation(libs.foundation.ioe.ktor)
     implementation(libs.foundation.ioe.mongo)
+    implementation(libs.foundation.ioe.config)
     implementation(libs.foundation.ioe.logging)
 
     api(project(":model"))

@@ -4,9 +4,10 @@ import kotlinx.serialization.json.Json
 import org.b3.bem.model.codec.json.JsonCodec
 import org.b3.bem.protocol.http.Api
 import org.b3.bem.protocol.http.HttpProtocol
-import org.b3.bem.server.store.application.FactsService
-import org.b3.bem.server.store.endpoint.FactsEndpoint
-import org.b3.bem.server.store.storage.mongo.MongoFactRepository
+import org.b3.bem.server.store.config.StoreConfig
+import org.b3.ioe.config.ConfigLoader
+import org.b3.ioe.config.Parser
+import org.b3.ioe.config.root.IoEConfig
 import org.b3.ioe.http.HttpServer
 import org.b3.ioe.http.routing.routing
 import org.b3.ioe.ktor.KtorHttpServer
@@ -32,25 +33,21 @@ class Server(
         httpServer.destroy()
     }
 
+    private val source = ConfigLoader.load(args = args)
+    private val ioeConfig = Parser.parse<IoEConfig>(source = source)
+    private val storeConfig = Parser.parse<StoreConfig>(source = source)
+
     private val codec = JsonCodec(Json { ignoreUnknownKeys = true })
-    private val store = MongoStore(url = "mongodb://$DATABASE_HOST:$DATABASE_PORT")
-    private val service = FactsService(repository = MongoFactRepository(encoder = codec, database = store.database(DATABASE)))
-    private val factsEndpoint = FactsEndpoint(decoder = codec, service = service)
+    private val database = MongoStore(url = ioeConfig.mongo.url)
+        .database(storeConfig.database)
+
+    private val storeComponent = StoreComponent(codec = codec, database = database)
     private val httpServer: HttpServer = KtorHttpServer(
-        host = HTTP_HOST, port = HTTP_PORT,
+        host = ioeConfig.ktor.host, port = ioeConfig.ktor.port,
         routes = routing {
             path(Api.BASE_PATH) {
-                path(HttpProtocol.VERSION) { include(factsEndpoint.routes) }
+                path(HttpProtocol.VERSION) { include(storeComponent.endpoint.routes) }
             }
         },
     )
-
-    private companion object {
-        const val LOCALHOST = "127.0.0.1"
-        const val HTTP_HOST = LOCALHOST
-        const val HTTP_PORT = 8000
-        const val DATABASE_HOST = LOCALHOST
-        const val DATABASE_PORT = 27017
-        const val DATABASE = "business_event_management"
-    }
 }
