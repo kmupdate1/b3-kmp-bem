@@ -1,20 +1,20 @@
 package org.b3.bem.server.storage.mongo
 
-import com.mongodb.kotlin.client.coroutine.MongoClient
-import kotlinx.serialization.json.Json
-import org.b3.bem.model.codec.json.JsonCodec
+import org.b3.bem.model.codec.Codec
 import org.b3.bem.model.dto.CompositeFactDto
 import org.b3.bem.server.storage.FactRepository
-import org.bson.Document
 
-class MongoFactRepository : FactRepository {
+class MongoFactRepository(
+    private val codec: Codec<String>,
+    private val database: MongoDatabase,
+) : FactRepository {
     override suspend fun store(fact: CompositeFactDto) {
-        val json = codec.encode(fact)
-        collection.insertOne(Document.parse(json))
+        collection.insert(codec.encode(fact))
     }
 
-    private val codec = JsonCodec(Json { ignoreUnknownKeys = true })
-    private val collection = MongoClient.create("mongodb://127.0.0.1:27017")
-        .getDatabase("business_event_management")
-        .getCollection<Document>(collectionName = "facts")
+    private val collection = database.collection(COLLECTION)
+
+    private companion object {
+        const val COLLECTION = "Facts"
+    }
 }
