@@ -1,19 +1,19 @@
-package org.b3.bem.server
+package org.b3.bem.server.store
 
 import kotlinx.serialization.json.Json
 import org.b3.bem.model.codec.json.JsonCodec
 import org.b3.bem.protocol.http.Api
 import org.b3.bem.protocol.http.HttpProtocol
-import org.b3.bem.server.application.FactsService
-import org.b3.bem.server.endpoint.FactsEndpoint
-import org.b3.bem.server.storage.mongo.MongoFactRepository
+import org.b3.bem.server.store.application.FactsService
+import org.b3.bem.server.store.endpoint.FactsEndpoint
+import org.b3.bem.server.store.storage.mongo.MongoFactRepository
 import org.b3.ioe.http.HttpServer
 import org.b3.ioe.http.routing.routing
 import org.b3.ioe.ktor.KtorHttpServer
 import org.b3.ioe.mongo.MongoStore
 import org.b3.runtime.lifecycle.Lifecycle
 
-class BemServer(
+class Server(
     private val args: Array<String>,
 ) : Lifecycle {
     override suspend fun onCreate() {

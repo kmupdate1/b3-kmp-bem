@@ -1,8 +1,8 @@
-package org.b3.bem.server.endpoint
+package org.b3.bem.server.store.endpoint
 
 import org.b3.bem.model.codec.Decoder
 import org.b3.bem.protocol.http.Endpoints
-import org.b3.bem.server.application.FactsService
+import org.b3.bem.server.store.application.FactsService
 import org.b3.ioe.http.HttpStatus
 import org.b3.ioe.http.routing.routing
 

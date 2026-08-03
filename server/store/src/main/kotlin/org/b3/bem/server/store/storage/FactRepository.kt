@@ -1,4 +1,4 @@
-package org.b3.bem.server.storage
+package org.b3.bem.server.store.storage
 
 import org.b3.bem.model.dto.CompositeFactDto
 
