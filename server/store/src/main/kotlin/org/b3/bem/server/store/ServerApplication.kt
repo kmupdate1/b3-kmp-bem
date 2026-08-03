@@ -1,7 +1,6 @@
 package org.b3.bem.server.store
 
-import org.b3.runtime.jvm.RuntimeLauncher
-
+import org.b3.runtime.RuntimeLauncher
 
 object ServerApplication {
     @JvmStatic

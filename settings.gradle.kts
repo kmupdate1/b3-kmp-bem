@@ -30,7 +30,7 @@ include(
     ":sdk",
     ":dsl",
 
-    ":iot:agent",
+    ":client:runtime",
 
     "editor-core",
     "editor-yaml",
