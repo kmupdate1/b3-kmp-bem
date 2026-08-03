@@ -30,7 +30,7 @@ include(
     ":sdk",
     ":dsl",
 
-    ":client:runtime",
+    ":client:agent",
 
     "editor-core",
     "editor-yaml",

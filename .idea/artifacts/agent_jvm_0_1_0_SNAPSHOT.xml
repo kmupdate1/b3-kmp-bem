@@ -1,8 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="agent-jvm-0.1.0-SNAPSHOT">
-    <output-path>$PROJECT_DIR$/iot/agent/build/libs</output-path>
-    <root id="archive" name="agent-jvm-0.1.0-SNAPSHOT.jar">
-      <element id="module-output" name="b3-bem.iot.agent.jvmMain" />
-    </root>
+    <output-path>$PROJECT_DIR$/client/agent/build/libs</output-path>
+    <root id="archive" name="agent-jvm-0.1.0-SNAPSHOT.jar" />
   </artifact>
 </component>

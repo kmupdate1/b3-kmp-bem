@@ -10,6 +10,8 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":sdk"))
+
+            implementation(libs.foundation.runtime)
         }
 
         commonTest.dependencies {
