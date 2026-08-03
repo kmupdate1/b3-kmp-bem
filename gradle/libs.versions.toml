@@ -4,7 +4,6 @@ serialization = "1.11.0"
 coroutines = "1.11.0"
 datetime = "0.8.0"
 ktor = "3.5.0"
-mongodb = "5.9.1"
 logback = "1.5.38"
 compose = "1.11.1"
 xmlutil = "1.0.1"
@@ -21,14 +20,6 @@ ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "
 ktor-client-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
 ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 
-ktor-server-core = { group = "io.ktor", name = "ktor-server-core", version.ref = "ktor" }
-ktor-server-cio = { group = "io.ktor", name = "ktor-server-cio", version.ref = "ktor" }
-ktor-server-content-negotiation = { group = "io.ktor", name = "ktor-server-content-negotiation", version.ref = "ktor" }
-ktor-server-call-logging = { group = "io.ktor", name = "ktor-server-call-logging", version.ref = "ktor" }
-ktor-server-status-pages = { group = "io.ktor", name = "ktor-server-status-pages", version.ref = "ktor" }
-
-mongodb-driver-kotlin-coroutine = { module = "org.mongodb:mongodb-driver-kotlin-coroutine", version.ref = "mongodb" }
-
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
 
 pdvrieze-xmlutil = { group = "io.github.pdvrieze.xmlutil", name = "serialization", version.ref = "xmlutil" }
@@ -36,6 +27,8 @@ pdvrieze-xmlutil = { group = "io.github.pdvrieze.xmlutil", name = "serialization
 foundation-runtime = { group = "org.bluebikebase.foundation", name = "runtime", version.ref = "b3" }
 foundation-ioe-http = { group = "org.bluebikebase.foundation", name = "io-engine-http", version.ref = "b3" }
 foundation-ioe-ktor = { group = "org.bluebikebase.foundation", name = "io-engine-ktor", version.ref = "b3" }
+foundation-ioe-mongo = { group = "org.bluebikebase.foundation", name = "io-engine-mongo", version.ref = "b3" }
+foundation-ioe-logging = { group = "org.bluebikebase.foundation", name = "io-engine-logging", version.ref = "b3" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

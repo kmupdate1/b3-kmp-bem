@@ -21,7 +21,7 @@
             <option value="$PROJECT_DIR$/samples/runtime" />
             <option value="$PROJECT_DIR$/samples/server" />
             <option value="$PROJECT_DIR$/sdk" />
-            <option value="$PROJECT_DIR$/server" />
+            <option value="$PROJECT_DIR$/server-store" />
           </set>
         </option>
       </GradleProjectSettings>

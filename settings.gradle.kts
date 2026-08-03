@@ -34,7 +34,7 @@ include(
     "editor-yaml",
     "editor-compose",
 
-    ":server",
+    ":server-store",
 
     ":samples:runtime",
     ":samples:client",
