@@ -4,6 +4,7 @@ import org.b3.bem.core.fact.Fact
 import org.b3.bem.dsl.function.boundary
 import org.b3.bem.generated.equipment.Battery1
 import org.b3.bem.generated.equipment.Pump3
+import org.b3.bem.generated.extension.m3
 import org.b3.bem.generated.extension.wh
 
 class ElectricPowerGridService {
@@ -22,6 +23,7 @@ class ElectricPowerGridService {
         Pump3.measure {
             it.electric inflow 50.wh
             it.electric outflow 50.wh
+            it.water outflow 300.m3
         }
     }
 }
