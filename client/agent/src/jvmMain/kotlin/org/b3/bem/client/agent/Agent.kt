@@ -23,7 +23,7 @@ class Agent(
 ) : Lifecycle {
     override suspend fun onCreate() {
         httpClient = KtorHttpClient(
-            baseUrl = "http://${ktorConfig.host}:${ktorConfig.port}/${Api.BASE_PATH}/${HttpProtocol.VERSION}"
+            baseUrl = "http://${ktorConfig.host}:${ktorConfig.port}${Api.BASE_PATH}/${HttpProtocol.VERSION}"
         )
         httpClient.create()
 
