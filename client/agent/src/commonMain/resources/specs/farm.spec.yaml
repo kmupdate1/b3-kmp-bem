@@ -1,0 +1,38 @@
+resources:
+  electric:
+    unit:
+      - kwh
+      - wh
+  water:
+    unit:
+      - l
+      - m3
+      - kg
+  human:
+    unit:
+      - month
+
+equipments:
+  Battery1:
+    resources:
+      - electric
+  Battery2:
+    resources:
+      - electric
+
+  Pump1:
+    resources:
+      - electric
+      - water
+  Pump2:
+    resources:
+      - electric
+      - water
+  Pump3:
+    resources:
+      - electric
+      - water
+
+  EmployeeA:
+    resources:
+      - human

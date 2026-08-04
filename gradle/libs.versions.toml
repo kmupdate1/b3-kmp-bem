@@ -26,7 +26,8 @@ pdvrieze-xmlutil = { group = "io.github.pdvrieze.xmlutil", name = "serialization
 
 foundation-runtime = { group = "org.bluebikebase.foundation", name = "runtime", version.ref = "b3" }
 foundation-ioe-http = { group = "org.bluebikebase.foundation", name = "io-engine-http", version.ref = "b3" }
-foundation-ioe-ktor = { group = "org.bluebikebase.foundation", name = "io-engine-ktor", version.ref = "b3" }
+foundation-ioe-ktor-client = { group = "org.bluebikebase.foundation", name = "io-engine-ktor-client", version.ref = "b3" }
+foundation-ioe-ktor-server = { group = "org.bluebikebase.foundation", name = "io-engine-ktor-server", version.ref = "b3" }
 foundation-ioe-mongo = { group = "org.bluebikebase.foundation", name = "io-engine-mongo", version.ref = "b3" }
 foundation-ioe-config = { group = "org.bluebikebase.foundation", name = "io-engine-config", version.ref = "b3" }
 foundation-ioe-logging = { group = "org.bluebikebase.foundation", name = "io-engine-logging", version.ref = "b3" }

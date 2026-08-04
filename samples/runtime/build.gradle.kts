@@ -42,14 +42,14 @@ tasks.register("regenerate") {
     description = ""
     group = "bem"
 
-    dependsOn(":sample:clean")
-    finalizedBy(":sample:generateBem")
+    dependsOn(":samples:clean")
+    finalizedBy(":samples:generateBem")
 }
 
 tasks.register("sampleTest") {
     description = ""
     group = "bem"
-    dependsOn(":sample:jvmTest")
+    dependsOn(":samples:jvmTest")
 }
 
 tasks.register("dev") {

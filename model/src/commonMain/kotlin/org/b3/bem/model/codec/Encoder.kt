@@ -1,7 +1,7 @@
 package org.b3.bem.model.codec
 
-import org.b3.bem.model.dto.CompositeFactDto
+import org.b3.bem.model.dto.FactDto
 
 interface Encoder<T> {
-    fun encode(dto: CompositeFactDto): T
+    fun encode(dto: FactDto): T
 }

@@ -3,6 +3,7 @@ package org.b3.bem.dsl.builder
 import org.b3.bem.core.equipment.Equipment
 import org.b3.bem.core.fact.BoundaryContext
 import org.b3.bem.core.fact.CompositeFact
+import org.b3.bem.core.fact.Fact
 import org.b3.bem.core.fact.FactId
 import org.b3.bem.dsl.annotation.BemDsl
 import kotlin.time.Clock
@@ -28,7 +29,7 @@ class BoundaryBuilder(private val scope: String) {
                 .build()
     }
 
-    fun add(fact: CompositeFact) { facts += fact }
+    fun add(fact: Fact) { facts += fact }
 
     internal fun build(): CompositeFact = CompositeFact(
         id = FactId.gen(),
@@ -38,5 +39,5 @@ class BoundaryBuilder(private val scope: String) {
     )
 
     private val timestamp = Clock.System.now()
-    private val facts = mutableListOf<CompositeFact>()
+    private val facts = mutableListOf<Fact>()
 }
