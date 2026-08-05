@@ -10,6 +10,6 @@ class BinaryDatagramDecodeService(
 ) {
     suspend operator fun invoke(datagram: Datagram) {
         val binary = decoder.decode(datagram.payload)
-        service.execute(binary)
+        service(binary)
     }
 }

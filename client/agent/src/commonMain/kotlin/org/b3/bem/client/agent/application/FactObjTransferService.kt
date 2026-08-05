@@ -8,7 +8,7 @@ class FactObjTransferService(
     private val binaryMeasurementService: BinaryMeasurementService,
     private val factClient: FactClient,
 ) {
-    suspend fun execute(binary: BinaryData) {
+    suspend operator fun invoke(binary: BinaryData) {
         val fact = binaryMeasurementService(binary = binary)
         factClient.send(fact = fact.toDto())
     }
