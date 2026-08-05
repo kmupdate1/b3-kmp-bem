@@ -1,6 +1,8 @@
 pluginManagement {
     repositories {
-        mavenLocal()
+        gradlePluginPortal()
+        mavenCentral()
+        google()
         maven {
             val profile = providers.gradleProperty("repo.profile").orElse("public")
 
@@ -15,9 +17,6 @@ pluginManagement {
             url = uri("${repoUrl.orNull}/maven-public/")
             isAllowInsecureProtocol = !isPublic.get()
         }
-        gradlePluginPortal()
-        google()
-        mavenCentral()
     }
 }
 

@@ -12,9 +12,11 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.foundation.runtime)
             implementation(libs.foundation.ioe.ktor.client)
+            implementation(libs.foundation.ioe.udp)
             implementation(libs.foundation.ioe.config)
             implementation(libs.foundation.ioe.logging)
 

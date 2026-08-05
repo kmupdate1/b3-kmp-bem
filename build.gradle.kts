@@ -25,13 +25,18 @@ allprojects {
     version = rootProject.version
 
     repositories {
-        mavenLocal()
+        mavenCentral()
+        google()
         maven {
             url = uri("${repoUrl.orNull}/maven-public/")
             isAllowInsecureProtocol = !isPublic.get()
         }
-        google()
-        mavenCentral()
+    }
+
+    configurations.configureEach {
+        resolutionStrategy {
+            cacheChangingModulesFor(0, "seconds")
+        }
     }
 
     plugins.withId("org.jetbrains.kotlin.jvm") {

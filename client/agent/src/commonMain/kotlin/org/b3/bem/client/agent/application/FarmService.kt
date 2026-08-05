@@ -14,7 +14,7 @@ class FarmService {
     operator fun invoke(grid: Fact): Fact = boundary("Off-Grid LABO Farm Play") {
         add(grid)
         EmployeeA.measure {
-            it.human inflow 1.5.month
+            it.human outflow 1.5.month
         }
         Pump1.measure {
             it.electric outflow 1.2.kwh
