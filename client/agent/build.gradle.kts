@@ -16,7 +16,7 @@ kotlin {
 
             implementation(libs.foundation.runtime)
             implementation(libs.foundation.ioe.ktor.client)
-            implementation(libs.foundation.ioe.udp)
+            implementation(libs.foundation.ioe.tcp)
             implementation(libs.foundation.ioe.config)
             implementation(libs.foundation.ioe.logging)
 

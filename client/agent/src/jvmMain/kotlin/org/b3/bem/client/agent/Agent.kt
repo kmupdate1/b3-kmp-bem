@@ -5,7 +5,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.serialization.json.Json
-import org.b3.bem.client.agent.application.*
+import org.b3.bem.client.agent.application.BinaryDatagramDecodeService
+import org.b3.bem.client.agent.application.BinaryMeasurementService
+import org.b3.bem.client.agent.application.FactObjTransferService
 import org.b3.bem.client.agent.codec.JvmBinaryCodec
 import org.b3.bem.client.agent.http.ktor.DefaultFactClient
 import org.b3.bem.model.codec.json.JsonCodec
@@ -16,8 +18,8 @@ import org.b3.ioe.config.Parser
 import org.b3.ioe.config.ktor.KtorConfig
 import org.b3.ioe.config.udp.UdpConfig
 import org.b3.ioe.ktor.client.KtorHttpClient
-import org.b3.ioe.udp.JvmUdpReceiver
-import org.b3.ioe.udp.UdpServer
+import org.b3.ioe.tcp.JvmTcpAcceptor
+import org.b3.ioe.tcp.TcpServer
 import org.b3.runtime.lifecycle.Lifecycle
 
 class Agent(
@@ -39,8 +41,8 @@ class Agent(
             ),
         )
 
-        binaryServer = UdpServer(
-            receiver = JvmUdpReceiver(port = udpConfig.port),
+        binaryServer = TcpServer(
+            acceptor = JvmTcpAcceptor(port = udpConfig.port),
             scope = scope,
             handler = service::invoke,
         )
@@ -68,5 +70,5 @@ class Agent(
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     private lateinit var httpClient: KtorHttpClient
-    private lateinit var binaryServer: UdpServer
+    private lateinit var binaryServer: TcpServer
 }
