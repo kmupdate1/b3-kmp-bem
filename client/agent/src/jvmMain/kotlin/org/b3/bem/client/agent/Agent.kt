@@ -5,10 +5,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.serialization.json.Json
-import org.b3.bem.client.agent.application.BinaryDatagramDecodeService
-import org.b3.bem.client.agent.application.BinaryMeasurementService
+import org.b3.bem.client.agent.application.BinaryDecodeService
 import org.b3.bem.client.agent.application.FactObjTransferService
-import org.b3.bem.client.agent.codec.JvmBinaryCodec
+import org.b3.bem.client.agent.application.Pump1MeasurementService
+import org.b3.bem.client.agent.codec.JvmObservationCodec
 import org.b3.bem.client.agent.http.ktor.DefaultFactClient
 import org.b3.bem.model.codec.json.JsonCodec
 import org.b3.bem.protocol.http.Api
@@ -30,10 +30,10 @@ class Agent(
             baseUrl = "http://${ktorConfig.host}:${ktorConfig.port}${Api.BASE_PATH}/${HttpProtocol.VERSION}"
         )
 
-        val service = BinaryDatagramDecodeService(
-            decoder = JvmBinaryCodec(),
-            service = FactObjTransferService(
-                binaryMeasurementService = BinaryMeasurementService(),
+        val service = BinaryDecodeService(
+            decoder = JvmObservationCodec(),
+            factObjTransferService = FactObjTransferService(
+                pump1MeasurementService = Pump1MeasurementService(),
                 factClient = DefaultFactClient(
                     encoder = JsonCodec(Json { ignoreUnknownKeys = true }),
                     httpClient = httpClient,

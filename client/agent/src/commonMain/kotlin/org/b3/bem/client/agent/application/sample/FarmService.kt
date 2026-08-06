@@ -1,4 +1,4 @@
-package org.b3.bem.client.agent.application
+package org.b3.bem.client.agent.application.sample
 
 import org.b3.bem.core.fact.Fact
 import org.b3.bem.dsl.function.boundary
